@@ -17,12 +17,13 @@ public class PrestigeLevelManager {
         double multiplikator = 1.0;
 
         for(int i = 0; i < 251; i++) {
-            multiplikator = multiplikator + 0.25D;
 
             PrestigeLevel prestigeLevel = new PrestigeLevel();
                 prestigeLevel.setMultiplikator(multiplikator);
 
             this.plugin.getPrestigeLevelMap().put(i, prestigeLevel);
+
+            multiplikator = multiplikator + 0.25D;
         }
 
     }

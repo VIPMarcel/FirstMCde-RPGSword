@@ -13,3 +13,5 @@ commands:
     description: gives you the rpg-sword
   prestige:
     description: updates your prestige level
+  rpg:
+    description: official rpg command

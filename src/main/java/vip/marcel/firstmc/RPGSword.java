@@ -1,12 +1,14 @@
 package vip.marcel.firstmc;
 
 import com.google.common.collect.Maps;
+import org.bukkit.Bukkit;
 import org.bukkit.entity.Player;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.plugin.PluginManager;
 import org.bukkit.plugin.java.JavaPlugin;
 import vip.marcel.firstmc.commands.FixSwordCommand;
 import vip.marcel.firstmc.commands.PrestigeCommand;
+import vip.marcel.firstmc.commands.RPGCommand;
 import vip.marcel.firstmc.listeners.*;
 import vip.marcel.firstmc.utils.entities.PrestigeLevel;
 import vip.marcel.firstmc.utils.entities.SwordLevel;
@@ -41,6 +43,11 @@ public class RPGSword extends JavaPlugin {
 
     @Override
     public void onEnable() {
+
+        Bukkit.getOnlinePlayers().forEach(players -> {
+            players.kickPlayer("§7You were kicked to §aavoid bugs§7. rejoin..");
+        });
+
         this.init();
     }
 
@@ -72,14 +79,18 @@ public class RPGSword extends JavaPlugin {
         pluginManager.registerEvents(new PlayerDropItemListener(this), this);
         pluginManager.registerEvents(new EntityDeathListener(this), this);
         pluginManager.registerEvents(new EntityDamageByEntityListener(this), this);
-        pluginManager.registerEvents(new InventoryClickListener(this), this);
+        pluginManager.registerEvents(new InventoryMoveItemListener(this), this);
+        pluginManager.registerEvents(new FoodLevelChangeListener(this), this);
+        pluginManager.registerEvents(new AsyncPlayerChatListener(this), this);
+        pluginManager.registerEvents(new EntityDamageListener(this), this);
 
         getCommand("fixsword").setExecutor(new FixSwordCommand(this));
         getCommand("prestige").setExecutor(new PrestigeCommand(this));
+        getCommand("rpg").setExecutor(new RPGCommand(this));
 
         new AFKAreaRunnable(this).runTaskTimerAsynchronously(this, 20 * 60, 20 * 60);
         new ActionbarRunnable(this).runTaskTimerAsynchronously(this, 10, 10);
-        new UpdateScoreboardRunnable(this).runTaskTimerAsynchronously(this, 10, 10);
+        new UpdateScoreboardRunnable(this).runTaskTimer(this, 10, 10);
     }
 
     public PluginAPI getApi() {

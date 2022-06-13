@@ -214,8 +214,12 @@ public record RPGPlayer(RPGSword plugin, Player player) {
         if(player.getInventory().firstEmpty() == -1) {
             // Inventory is full
 
-            player.performCommand("spawn");
             player.sendMessage("§cFailed! Your inventory is full and you can't get the rpg-sword.");
+
+            this.plugin.getApi().runTaskLater(() -> {
+                player.performCommand("spawn");
+            }, 20);
+
         } else {
             player.getInventory().addItem(itemStack);
         }

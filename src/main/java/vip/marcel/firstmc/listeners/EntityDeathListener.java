@@ -1,6 +1,7 @@
 package vip.marcel.firstmc.listeners;
 
 import net.raidstone.wgevents.WorldGuardEvents;
+import org.bukkit.Bukkit;
 import org.bukkit.Sound;
 import org.bukkit.entity.LivingEntity;
 import org.bukkit.entity.Player;
@@ -23,6 +24,9 @@ public record EntityDeathListener(RPGSword plugin) implements Listener {
             if(killer.getItemInHand().getItemMeta().getDisplayName().equalsIgnoreCase(this.plugin.getSwordItems().get(rpgPlayer.getLevel()).getItemMeta().getDisplayName())) {
                 event.getDrops().clear();
                 event.setDroppedExp(0);
+                killer.playSound(killer.getLocation(), Sound.BLOCK_LEVER_CLICK, 0.1F, 0.1F);
+
+                this.plugin.getApi().hologram(entity.getLocation().subtract(0, 1, 0), "§a§l+ §7" + this.plugin.getSwordLevelMap().get(rpgPlayer.getLevel()).getCoinsPerKill() + " Coins").showHologramForPlayerTemporary(killer, 15);
 
                 rpgPlayer.grandRPGCoins(this.plugin.getSwordLevelMap().get(rpgPlayer.getLevel()).getCoinsPerKill());
 
@@ -39,6 +43,8 @@ public record EntityDeathListener(RPGSword plugin) implements Listener {
 
                     rpgPlayer.grandLevel();
                     rpgPlayer.resetExperience();
+                    killer.sendTitle("§7✳ §a§lLEVEL UP§7! ✳", "§a" + (rpgPlayer.getLevel() - 1) + " §7⇒ §a" + rpgPlayer.getLevel());
+                    Bukkit.getWorld(killer.getWorld().getName()).strikeLightningEffect(killer.getLocation());
                     killer.playSound(killer.getLocation(), Sound.ENTITY_FIREWORK_ROCKET_SHOOT, 0.5F, 5F);
                     rpgPlayer.updateRPGSword();
                 }

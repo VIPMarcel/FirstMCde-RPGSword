@@ -1,11 +1,16 @@
 package vip.marcel.firstmc.commands;
 
 import org.bukkit.Bukkit;
+import org.bukkit.Color;
+import org.bukkit.FireworkEffect;
 import org.bukkit.Sound;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
+import org.bukkit.entity.EntityType;
+import org.bukkit.entity.Firework;
 import org.bukkit.entity.Player;
+import org.bukkit.inventory.meta.FireworkMeta;
 import org.jetbrains.annotations.NotNull;
 import vip.marcel.firstmc.RPGSword;
 import vip.marcel.firstmc.utils.player.RPGPlayer;
@@ -24,6 +29,71 @@ public record PrestigeCommand(RPGSword plugin) implements CommandExecutor {
                 rpgPlayer.grandPrestigeLevel();
                 rpgPlayer.resetLevel();
                 rpgPlayer.resetExperience();
+
+                this.plugin.getApi().runTaskLater(() -> {
+                    {
+                        Firework firework = (Firework) player.getWorld().spawnEntity(player.getLocation(), EntityType.FIREWORK);
+                        FireworkMeta fireworkMeta = firework.getFireworkMeta();
+                        FireworkEffect.Builder fBuilder = FireworkEffect.builder();
+                        fBuilder.withTrail();
+                        fBuilder.withFlicker();
+                        fBuilder.withFade(Color.ORANGE);
+                        fBuilder.withColor(Color.YELLOW);
+                        fBuilder.withColor(Color.RED);
+                        fBuilder.with(FireworkEffect.Type.STAR);
+                        fireworkMeta.addEffects(fBuilder.build());
+                        fireworkMeta.setPower(1);
+                        firework.setFireworkMeta(fireworkMeta);
+                    }
+                }, 5);
+                this.plugin.getApi().runTaskLater(() -> {
+                    {
+                        Firework firework = (Firework) player.getWorld().spawnEntity(player.getLocation(), EntityType.FIREWORK);
+                        FireworkMeta fireworkMeta = firework.getFireworkMeta();
+                        FireworkEffect.Builder fBuilder = FireworkEffect.builder();
+                        fBuilder.withTrail();
+                        fBuilder.withFlicker();
+                        fBuilder.withFade(Color.ORANGE);
+                        fBuilder.withColor(Color.YELLOW);
+                        fBuilder.withColor(Color.RED);
+                        fBuilder.with(FireworkEffect.Type.STAR);
+                        fireworkMeta.addEffects(fBuilder.build());
+                        fireworkMeta.setPower(1);
+                        firework.setFireworkMeta(fireworkMeta);
+                    }
+                }, 10);
+                this.plugin.getApi().runTaskLater(() -> {
+                    {
+                        Firework firework = (Firework) player.getWorld().spawnEntity(player.getLocation(), EntityType.FIREWORK);
+                        FireworkMeta fireworkMeta = firework.getFireworkMeta();
+                        FireworkEffect.Builder fBuilder = FireworkEffect.builder();
+                        fBuilder.withTrail();
+                        fBuilder.withFlicker();
+                        fBuilder.withFade(Color.ORANGE);
+                        fBuilder.withColor(Color.YELLOW);
+                        fBuilder.withColor(Color.RED);
+                        fBuilder.with(FireworkEffect.Type.STAR);
+                        fireworkMeta.addEffects(fBuilder.build());
+                        fireworkMeta.setPower(1);
+                        firework.setFireworkMeta(fireworkMeta);
+                    }
+                }, 15);
+                this.plugin.getApi().runTaskLater(() -> {
+                    {
+                        Firework firework = (Firework) player.getWorld().spawnEntity(player.getLocation(), EntityType.FIREWORK);
+                        FireworkMeta fireworkMeta = firework.getFireworkMeta();
+                        FireworkEffect.Builder fBuilder = FireworkEffect.builder();
+                        fBuilder.withTrail();
+                        fBuilder.withFlicker();
+                        fBuilder.withFade(Color.ORANGE);
+                        fBuilder.withColor(Color.YELLOW);
+                        fBuilder.withColor(Color.RED);
+                        fBuilder.with(FireworkEffect.Type.STAR);
+                        fireworkMeta.addEffects(fBuilder.build());
+                        fireworkMeta.setPower(1);
+                        firework.setFireworkMeta(fireworkMeta);
+                    }
+                }, 20);
 
                 rpgPlayer.updateRPGSword();
 

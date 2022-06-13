@@ -23,7 +23,7 @@ public record EntityDamageByEntityListener(RPGSword plugin) implements Listener 
                 if(!this.plugin.getSwordLevelMap().get(rpgPlayer.getLevel()).getKillableEntityType().equals(entity.getType())) {
                     event.setCancelled(true);
                     //player.sendMessage("§7§l(§c§l!§7§l)§r §7You cannot kill this Mob, your §4§lSword-level§r §7is too low.");
-                    player.sendMessage("§cYou can only kill " + this.plugin.getSwordLevelMap().get(rpgPlayer.getLevel()).getKillableEntityType().getName() + " §cwith level " + rpgPlayer.getLevel() + "!");
+                    player.sendMessage("§7§l(§c§l!§7§l)§r §7You can only kill a §alevel " + rpgPlayer.getLevel() + " " + this.plugin.getSwordLevelMap().get(rpgPlayer.getLevel()).getKillableEntityType().getName() + "§7.");
                 }
             }
 

@@ -105,7 +105,7 @@ public class SwordManager {
             swordLevel.setMaxExperience(100);
             swordLevel.setGrandExperience(1);
             swordLevel.setCoinsPerKill(5);
-            swordLevel.setKillableEntityType(EntityType.TURTLE);
+            swordLevel.setKillableEntityType(EntityType.CAT);
 
             this.plugin.getSwordLevelMap().put(5, swordLevel);
         }

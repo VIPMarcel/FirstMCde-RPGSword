@@ -18,6 +18,8 @@ public record PlayerRegionLeftListener(RPGSword plugin) implements Listener {
         if(event.getRegionName().equalsIgnoreCase("Spawn")) {
             rpgPlayer.removeRPGSword();
 
+            player.setPlayerTime(player.getWorld().getTime(), false);
+
             player.setScoreboard(Bukkit.getScoreboardManager().getNewScoreboard());
         }
 

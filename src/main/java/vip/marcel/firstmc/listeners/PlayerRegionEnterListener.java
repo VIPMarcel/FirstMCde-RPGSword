@@ -16,7 +16,9 @@ public record PlayerRegionEnterListener(RPGSword plugin) implements Listener {
         final RPGPlayer rpgPlayer = this.plugin.getRPGPlayerMap().get(player);
 
         if(event.getRegionName().equalsIgnoreCase("Spawn")) {
-            rpgPlayer.grandRPGSword();
+            rpgPlayer.updateRPGSword();
+
+            player.setPlayerTime(6000, true);
 
             this.plugin.getApi().creteScoreboard(player)
                     .setDisplaySlot(DisplaySlot.SIDEBAR)
