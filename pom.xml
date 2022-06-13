@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <groupId>vip.marcel.firstmc</groupId>
+    <artifactId>RPGSword</artifactId>
+    <version>${revision}</version>
+
+    <properties>
+        <revision>1.0-SNAPSHOT</revision>
+
+        <dependency.bukkit.version>1.18.2-R0.1-SNAPSHOT</dependency.bukkit.version>
+        <dependency.protocollib.version>4.8.0-SNAPSHOT</dependency.protocollib.version>
+
+        <plugin.specialsource.version>1.2.2</plugin.specialsource.version>
+
+        <maven.compiler.source>16</maven.compiler.source>
+        <maven.compiler.target>16</maven.compiler.target>
+        <java.version>16</java.version>
+
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+    </properties>
+
+    <repositories>
+        <!-- This adds the PaperSpigot Maven repository to the build -->
+        <repository>
+            <id>papermc</id>
+            <url>https://papermc.io/repo/repository/maven-public/</url>
+        </repository>
+
+        <repository>
+            <id>minecraft-repo</id>
+            <url>https://libraries.minecraft.net/</url>
+        </repository>
+    </repositories>
+
+    <dependencies>
+        <!--This adds the PaperSpigot API and NMS artifact to the build -->
+        <dependency>
+            <groupId>io.papermc.paper</groupId>
+            <artifactId>paper-api</artifactId>
+            <version>${dependency.bukkit.version}</version>
+            <scope>provided</scope>
+        </dependency>
+
+        <dependency>
+            <groupId>com.mojang</groupId>
+            <artifactId>authlib</artifactId>
+            <version>1.5.21</version>
+            <scope>provided</scope>
+        </dependency>
+
+        <dependency>
+            <groupId>net.raidstone</groupId>
+            <artifactId>WorldGuardEvents</artifactId>
+            <version>LATEST</version>
+            <scope>provided</scope>
+        </dependency>
+
+        <dependency>
+            <groupId>vip.marcel</groupId>
+            <artifactId>PluginAPI</artifactId>
+            <version>1.0-SNAPSHOT</version>
+            <scope>compile</scope>
+        </dependency>
+    </dependencies>
+
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <version>3.6.1</version>
+                <configuration>
+                    <source>16</source>
+                    <target>16</target>
+                </configuration>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-shade-plugin</artifactId>
+                <version>3.0.0</version>
+                <executions>
+                    <execution>
+                        <phase>package</phase>
+                        <goals>
+                            <goal>shade</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
+        </plugins>
+        <resources>
+            <resource>
+                <directory>src/main/resources</directory>
+                <filtering>true</filtering>
+                <includes>
+                    <include>*.yml</include>
+                    <include>*.info</include>
+                    <include>*.json</include>
+                    <include>*.properties</include>
+                </includes>
+            </resource>
+        </resources>
+    </build>
+
+</project>
