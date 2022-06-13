@@ -1,7 +1,6 @@
 package vip.marcel.firstmc;
 
 import com.google.common.collect.Maps;
-import org.bukkit.Bukkit;
 import org.bukkit.entity.Player;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.plugin.PluginManager;
@@ -43,11 +42,6 @@ public class RPGSword extends JavaPlugin {
 
     @Override
     public void onEnable() {
-
-        Bukkit.getOnlinePlayers().forEach(players -> {
-            players.kickPlayer("§7You were kicked to §aavoid bugs§7. rejoin..");
-        });
-
         this.init();
     }
 
