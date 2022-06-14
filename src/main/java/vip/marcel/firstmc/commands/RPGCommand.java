@@ -29,6 +29,7 @@ public record RPGCommand(RPGSword plugin) implements CommandExecutor {
                     player.playSound(player.getLocation(), Sound.BLOCK_LEVER_CLICK, 0.1F, 0.1F);
                 }
 
+                //TODO: Create commands
 
                 else {
                     player.sendMessage("§7§l(§a?§7§l)§r §7Usages:");

@@ -5,19 +5,14 @@ import org.bukkit.entity.Player;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.plugin.PluginManager;
 import org.bukkit.plugin.java.JavaPlugin;
-import vip.marcel.firstmc.commands.FixSwordCommand;
-import vip.marcel.firstmc.commands.PrestigeCommand;
-import vip.marcel.firstmc.commands.RPGCommand;
+import vip.marcel.firstmc.commands.*;
 import vip.marcel.firstmc.listeners.*;
 import vip.marcel.firstmc.utils.entities.PrestigeLevel;
 import vip.marcel.firstmc.utils.entities.SwordLevel;
-import vip.marcel.firstmc.utils.managers.ConfigManager;
-import vip.marcel.firstmc.utils.managers.PrestigeLevelManager;
-import vip.marcel.firstmc.utils.managers.SwordManager;
+import vip.marcel.firstmc.utils.enums.ShopItem;
+import vip.marcel.firstmc.utils.managers.*;
 import vip.marcel.firstmc.utils.player.RPGPlayer;
-import vip.marcel.firstmc.utils.runnables.AFKAreaRunnable;
-import vip.marcel.firstmc.utils.runnables.ActionbarRunnable;
-import vip.marcel.firstmc.utils.runnables.UpdateScoreboardRunnable;
+import vip.marcel.firstmc.utils.runnables.*;
 import vip.marcel.pluginapi.PluginAPI;
 
 import java.io.File;
@@ -33,12 +28,14 @@ public class RPGSword extends JavaPlugin {
     private Map<Integer, ItemStack> swordItems;
     private Map<Integer, SwordLevel> swordLevelMap;
     private Map<Integer, PrestigeLevel> prestigeLevelMap;
+    private Map<Player, ShopItem> shopConfirmItem;
 
     private int maxSwordLevel;
 
     private ConfigManager configManager;
     private SwordManager swordManager;
     private PrestigeLevelManager prestigeLevelManager;
+    private InventoryManager inventoryManager;
 
     @Override
     public void onEnable() {
@@ -58,12 +55,14 @@ public class RPGSword extends JavaPlugin {
         this.swordItems = Maps.newConcurrentMap();
         this.swordLevelMap = Maps.newConcurrentMap();
         this.prestigeLevelMap = Maps.newConcurrentMap();
+        this.shopConfirmItem = Maps.newConcurrentMap();
 
         this.maxSwordLevel = 20;
 
         this.configManager = new ConfigManager(this);
         this.swordManager = new SwordManager(this);
         this.prestigeLevelManager = new PrestigeLevelManager(this);
+        this.inventoryManager = new InventoryManager(this);
 
         final PluginManager pluginManager = this.getServer().getPluginManager();
         pluginManager.registerEvents(new PlayerLoginListener(this), this);
@@ -77,14 +76,20 @@ public class RPGSword extends JavaPlugin {
         pluginManager.registerEvents(new FoodLevelChangeListener(this), this);
         pluginManager.registerEvents(new AsyncPlayerChatListener(this), this);
         pluginManager.registerEvents(new EntityDamageListener(this), this);
+        pluginManager.registerEvents(new InventoryClickListener(this), this);
 
         getCommand("fixsword").setExecutor(new FixSwordCommand(this));
         getCommand("prestige").setExecutor(new PrestigeCommand(this));
         getCommand("rpg").setExecutor(new RPGCommand(this));
+        getCommand("coinshop").setExecutor(new CoinShopCommand(this));
+        getCommand("skills").setExecutor(new SkillsCommand(this));
+        getCommand("coins").setExecutor(new CoinsCommand(this));
 
         new AFKAreaRunnable(this).runTaskTimerAsynchronously(this, 20 * 60, 20 * 60);
         new ActionbarRunnable(this).runTaskTimerAsynchronously(this, 10, 10);
         new UpdateScoreboardRunnable(this).runTaskTimer(this, 10, 10);
+        new PlayerTimeRunnable(this).runTaskTimerAsynchronously(this, 20, 20);
+        new SkillsEffectRunnable(this).runTaskTimer(this, 20, 20);
     }
 
     public PluginAPI getApi() {
@@ -93,6 +98,18 @@ public class RPGSword extends JavaPlugin {
 
     public ConfigManager getConfigManager() {
         return this.configManager;
+    }
+
+    public InventoryManager getInventoryManager() {
+        return this.inventoryManager;
+    }
+
+    public ShopManager getShopManager(Player player) {
+        return new ShopManager(this, player);
+    }
+
+    public SkillsManager getSkillsManager(Player player) {
+        return new SkillsManager(this, player);
     }
 
     public Map<Player, File> getPlayerFileMap() {
@@ -113,6 +130,10 @@ public class RPGSword extends JavaPlugin {
 
     public Map<Integer, PrestigeLevel> getPrestigeLevelMap() {
         return this.prestigeLevelMap;
+    }
+
+    public Map<Player, ShopItem> getShopConfirmItem() {
+        return this.shopConfirmItem;
     }
 
     public int getMaxSwordLevel() {

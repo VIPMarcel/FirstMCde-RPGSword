@@ -8,6 +8,26 @@ depend: [WorldGuard, WorldGuardEvents]
 
 main: vip.marcel.firstmc.RPGSword
 
+permissions:
+  rpg.shop.skills.strenght1.on:
+    default: false
+  rpg.shop.skills.strenght2.on:
+    default: false
+  rpg.shop.skills.speed1.on:
+    default: false
+  rpg.shop.skills.speed2.on:
+    default: false
+  rpg.shop.skills.nightvision.on:
+    default: false
+  rpg.shop.skills.jumpboost1.on:
+    default: false
+  rpg.shop.skills.jumpboost2.on:
+    default: false
+  rpg.shop.skills.regeneration1.on:
+    default: false
+  rpg.shop.skills.regeneration2.on:
+    default: false
+
 commands:
   fixsword:
     description: gives you the rpg-sword
@@ -15,3 +35,10 @@ commands:
     description: updates your prestige level
   rpg:
     description: official rpg command
+  coinshop:
+    description: opens the rpg-coins shop
+    aliases: [coinsshop, cshop]
+  skills:
+    description: opens your bought skills inventory
+  coins:
+    description: shows your coins amount

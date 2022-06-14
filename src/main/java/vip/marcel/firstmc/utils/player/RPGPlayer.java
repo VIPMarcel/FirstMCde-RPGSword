@@ -42,6 +42,25 @@ public record RPGPlayer(RPGSword plugin, Player player) {
 
     }
 
+    public void removeRPGCoins(int amount) {
+
+        if(player == null) {
+            new NullPointerException("The player ist null (not online).");
+        }
+
+        final File file = this.plugin.getPlayerFileMap().get(player);
+        final YamlConfiguration configuration = YamlConfiguration.loadConfiguration(file);
+
+        configuration.set("RPGCoins", configuration.getInt("RPGCoins") - amount);
+        try {
+            configuration.save(file);
+        } catch(IOException e) {
+            e.printStackTrace();
+        }
+        this.plugin.getPlayerFileMap().put(player, file);
+
+    }
+
     public int getPrestigeLevel() {
 
         if(player == null) {

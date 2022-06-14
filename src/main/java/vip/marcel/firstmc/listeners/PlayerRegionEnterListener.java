@@ -18,8 +18,6 @@ public record PlayerRegionEnterListener(RPGSword plugin) implements Listener {
         if(event.getRegionName().equalsIgnoreCase("Spawn")) {
             rpgPlayer.updateRPGSword();
 
-            player.setPlayerTime(6000, true);
-
             this.plugin.getApi().creteScoreboard(player)
                     .setDisplaySlot(DisplaySlot.SIDEBAR)
                     .setDisplayName("§8§m----§r §7RPG Stats §8§m----")

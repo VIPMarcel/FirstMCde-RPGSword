@@ -17,6 +17,10 @@ public record EntityDeathListener(RPGSword plugin) implements Listener {
     public void onEntityDeathEvent(EntityDeathEvent event) {
         final LivingEntity entity = event.getEntity();
 
+        if(entity.getKiller() == null) {
+            return;
+        }
+
         final Player killer = entity.getKiller();
         final RPGPlayer rpgPlayer = this.plugin.getRPGPlayerMap().get(killer);
 

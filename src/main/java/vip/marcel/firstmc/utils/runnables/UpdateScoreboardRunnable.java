@@ -21,7 +21,8 @@ public class UpdateScoreboardRunnable extends BukkitRunnable {
         Bukkit.getOnlinePlayers().forEach(players -> {
             final RPGPlayer rpgPlayers = this.plugin.getRPGPlayerMap().get(players);
 
-            if(WorldGuardEvents.isPlayerInAnyRegion(players.getUniqueId(), "Spawn")) {
+            if(WorldGuardEvents.isPlayerInAnyRegion(players.getUniqueId(), "Spawn") |
+                    WorldGuardEvents.isPlayerInAnyRegion(players.getUniqueId(), "AFKArea")) {
                 if(players.getScoreboard().getObjective(DisplaySlot.SIDEBAR) == null) {
                     this.plugin.getApi().creteScoreboard(players)
                             .setDisplaySlot(DisplaySlot.SIDEBAR)

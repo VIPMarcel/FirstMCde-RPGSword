@@ -19,11 +19,6 @@ public class AFKAreaRunnable extends BukkitRunnable {
 
         Bukkit.getOnlinePlayers().forEach(players -> {
 
-            if(WorldGuardEvents.isPlayerInAnyRegion(players.getUniqueId(), "AFKArea") |
-                    WorldGuardEvents.isPlayerInAnyRegion(players.getUniqueId(), "Spawn")) {
-                players.setPlayerTime(6000, true);
-            }
-
             if(WorldGuardEvents.isPlayerInAnyRegion(players.getUniqueId(), "AFKArea")) {
 
                 final RPGPlayer rpgPlayers = this.plugin.getRPGPlayerMap().get(players);
