@@ -143,7 +143,22 @@ public record InventoryClickListener(RPGSword plugin) implements Listener {
             if(event.getView().getTitle().equalsIgnoreCase("§a§lCoin Shop§r §8» §7Crates")) {
 
                 event.setCancelled(true);
-                //TODO: Do crates
+
+                if(event.getCurrentItem().getItemMeta().getDisplayName().contains(ShopItem.CRATES_COMMON.getName())) {
+                    this.plugin.getInventoryManager().openConfirmBuyInventory(player, event.getCurrentItem(), ShopItem.CRATES_COMMON);
+                }
+
+                if(event.getCurrentItem().getItemMeta().getDisplayName().contains(ShopItem.CRATES_UNCOMMON.getName())) {
+                    this.plugin.getInventoryManager().openConfirmBuyInventory(player, event.getCurrentItem(), ShopItem.CRATES_UNCOMMON);
+                }
+
+                if(event.getCurrentItem().getItemMeta().getDisplayName().contains(ShopItem.CRATES_RARE.getName())) {
+                    this.plugin.getInventoryManager().openConfirmBuyInventory(player, event.getCurrentItem(), ShopItem.CRATES_RARE);
+                }
+
+                if(event.getCurrentItem().getItemMeta().getDisplayName().contains(ShopItem.CRATES_LEGENDARY.getName())) {
+                    this.plugin.getInventoryManager().openConfirmBuyInventory(player, event.getCurrentItem(), ShopItem.CRATES_LEGENDARY);
+                }
 
             }
 
@@ -272,6 +287,20 @@ public record InventoryClickListener(RPGSword plugin) implements Listener {
 
                         if(shopManager.grandItem(shopItem)) {
                             player.sendTitle("§aSuccessfully bought", "§b§l" + shopItem.getName());
+                            player.closeInventory();
+                            player.playSound(player.getLocation(), Sound.ENTITY_PLAYER_LEVELUP, 0.5F, 0.5F);
+                        }
+
+                    }
+
+                    /* Filters CRATES-Keys from CRATES-MENU */
+                    else if(shopItem.getName().startsWith("Common") |
+                            shopItem.getName().startsWith("Uncommon") |
+                            shopItem.getName().startsWith("Rare") |
+                            shopItem.getName().startsWith("Legendary")) {
+
+                        if(shopManager.grandItem(shopItem)) {
+                            player.sendTitle("§aSuccessfully bought", "§7" + shopItem.getName() + " Key");
                             player.closeInventory();
                             player.playSound(player.getLocation(), Sound.ENTITY_PLAYER_LEVELUP, 0.5F, 0.5F);
                         }

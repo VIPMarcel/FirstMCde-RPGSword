@@ -44,7 +44,23 @@ public record ShopManager(RPGSword plugin, Player player) {
         /* Filters OP-Items from TOOL-SHOP-MENU */
         else if(shopItem.getName().startsWith("OP")) {
             // Handled in InventoryClickListener.class
-        } else {
+        }
+
+        /* Filters CRATES-Key from CRATES-SHOP-MENU */
+        else if(shopItem.getName().startsWith("Common")) {
+            Bukkit.dispatchCommand(Bukkit.getConsoleSender(), "excellentcrates key give " + player.getName() + " common 1");
+        }
+        else if(shopItem.getName().startsWith("Uncommon")) {
+            Bukkit.dispatchCommand(Bukkit.getConsoleSender(), "excellentcrates key give " + player.getName() + " uncommon 1");
+        }
+        else if(shopItem.getName().startsWith("Rare")) {
+            Bukkit.dispatchCommand(Bukkit.getConsoleSender(), "excellentcrates key give " + player.getName() + " rare 1");
+        }
+        else if(shopItem.getName().startsWith("Legendary")) {
+            Bukkit.dispatchCommand(Bukkit.getConsoleSender(), "excellentcrates key give " + player.getName() + " legendary 1");
+        }
+
+        else {
             Bukkit.dispatchCommand(Bukkit.getConsoleSender(), "lp user " + player.getName() + " permission set " + shopItem.getPermission() + " true");
         }
 

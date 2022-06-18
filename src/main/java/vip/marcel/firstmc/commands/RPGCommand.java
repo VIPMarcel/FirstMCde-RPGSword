@@ -21,13 +21,19 @@ public record RPGCommand(RPGSword plugin) implements CommandExecutor {
 
             if(!player.hasPermission("rpg.admin")) {
                 player.sendMessage(" ");
-                player.sendMessage("§7Plugin wrote by §aVIPMarcel §7for RaceRPG.");
+                player.sendMessage("§7Plugin wrote by VIPMarcel §7for RaceRPG.");
                 player.sendMessage("§7In the RPG World you can farm §acoins §7and");
                 player.sendMessage("§aXP §7to reach next levels. The mobs and weapons");
                 player.sendMessage("§7are gettings §astronger §7and §abetter§7.");
                 player.sendMessage("§7If you completed all §a" + this.plugin.getMaxSwordLevel() + " levels §7you can");
                 player.sendMessage("§7prestige with §8'§a/prestige§8'§7. Now you start agian from §alevel 1");
                 player.sendMessage("§7with a higher §amultiplikator§7.");
+                player.sendMessage("§7Do §8'§a/levelbox§8' §7to teleport to your §alevel area§7.");
+                player.sendMessage("§7Do §8'§a/fixsword§8' §7to grand your sword back.");
+                player.sendMessage("§7Do §8'§a/coins withdraw§8' §7to create §acoin coupons§7.");
+                player.sendMessage("§7Do §8'§a/skills§8' §7to activate your §abought skills§7.");
+                player.sendMessage("§7Do §8'§a/prestigetop§8' §7to see the §atop 10 §7players§7.");
+                player.sendMessage("§7Do §8'§a/coinshop§8' §7to buy cool new stuff§7.");
                 player.sendMessage(" ");
                 return true;
             }
@@ -105,7 +111,7 @@ public record RPGCommand(RPGSword plugin) implements CommandExecutor {
                     try {
                         newValue = Double.parseDouble(arguments[2]);
                     } catch (NumberFormatException e) {
-                        player.sendMessage("§7§l(§c!§7§l)§r §7The §aamount §7" + arguments[1] + " §7is not valid.");
+                        player.sendMessage("§7§l(§c!§7§l)§r §7The §aamount §7" + arguments[2] + " §7is not valid.");
                         return true;
                     }
 
@@ -121,7 +127,7 @@ public record RPGCommand(RPGSword plugin) implements CommandExecutor {
                     try {
                         newValue = Integer.parseInt(arguments[2]);
                     } catch (NumberFormatException e) {
-                        player.sendMessage("§7§l(§c!§7§l)§r §7The §aamount §7" + arguments[1] + " §7is not valid.");
+                        player.sendMessage("§7§l(§c!§7§l)§r §7The §aamount §7" + arguments[2] + " §7is not valid.");
                         return true;
                     }
 
@@ -137,7 +143,7 @@ public record RPGCommand(RPGSword plugin) implements CommandExecutor {
                     try {
                         newValue = Integer.parseInt(arguments[2]);
                     } catch (NumberFormatException e) {
-                        player.sendMessage("§7§l(§c!§7§l)§r §7The §aamount §7" + arguments[1] + " §7is not valid.");
+                        player.sendMessage("§7§l(§c!§7§l)§r §7The §aamount §7" + arguments[2] + " §7is not valid.");
                         return true;
                     }
 
@@ -153,7 +159,7 @@ public record RPGCommand(RPGSword plugin) implements CommandExecutor {
                     try {
                         newValue = Integer.parseInt(arguments[2]);
                     } catch (NumberFormatException e) {
-                        player.sendMessage("§7§l(§c!§7§l)§r §7The §aamount §7" + arguments[1] + " §7is not valid.");
+                        player.sendMessage("§7§l(§c!§7§l)§r §7The §aamount §7" + arguments[2] + " §7is not valid.");
                         return true;
                     }
 
@@ -169,7 +175,7 @@ public record RPGCommand(RPGSword plugin) implements CommandExecutor {
                     try {
                         newValue = Integer.parseInt(arguments[2]);
                     } catch (NumberFormatException e) {
-                        player.sendMessage("§7§l(§c!§7§l)§r §7The §aamount §7" + arguments[1] + " §7is not valid.");
+                        player.sendMessage("§7§l(§c!§7§l)§r §7The §aamount §7" + arguments[2] + " §7is not valid.");
                         return true;
                     }
 

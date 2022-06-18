@@ -26,10 +26,10 @@ public record LevelBoxCommand(RPGSword plugin) implements CommandExecutor {
 
                     player.teleport(locationManager.getLocation("LevelBox-" + rpgPlayer.getLevel()));
                     player.playSound(player.getLocation(), Sound.ENTITY_ENDERMAN_TELEPORT, 0.5F, 0.5F);
-                    player.sendMessage("§7§l(§a§l!§7§l)§r §7Teleporting to your §alevel loot box§7.");
+                    player.sendMessage("§7§l(§a§l!§7§l)§r §7Teleporting to your §alevel§7.");
 
                 } else {
-                    player.sendMessage("§7§l(§c§l!§7§l)§r §7The position for loot box level §a" + rpgPlayer.getLevel() + " §7was not found.");
+                    player.sendMessage("§7§l(§c§l!§7§l)§r §7The position for level §a" + rpgPlayer.getLevel() + " §7was not found.");
                 }
 
             } else {

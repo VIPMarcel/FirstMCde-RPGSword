@@ -98,6 +98,7 @@ public class RPGSword extends JavaPlugin {
         getCommand("setposition").setExecutor(new SetPositionCommand(this));
         getCommand("editmode").setExecutor(new EditModeCommand(this));
         getCommand("prestigetop").setExecutor(new PrestigeTopCommand(this));
+        getCommand("discord").setExecutor(new DiscordCommand(this));
 
         new AFKAreaRunnable(this).runTaskTimerAsynchronously(this, 20 * 60, 20 * 60);
         new ActionbarRunnable(this).runTaskTimerAsynchronously(this, 10, 10);

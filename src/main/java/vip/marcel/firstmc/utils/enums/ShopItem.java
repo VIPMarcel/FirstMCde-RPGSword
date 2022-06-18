@@ -19,6 +19,11 @@ public enum ShopItem {
     RANKS_EMERALD("Emerald", 1500000, "rpg.shop.ranks.emerald"),
     RANKS_DIAMOND("Diamond", 7500000, "rpg.shop.ranks.diamond"),
 
+    CRATES_COMMON("Common", 10000, ""),
+    CRATES_UNCOMMON("Uncommon", 25000, ""),
+    CRATES_RARE("Rare", 50000, ""),
+    CRATES_LEGENDARY("Legendary", 100000, ""),
+
     ITEMS_OPHELM("OP Helmet", 300000, ""),
     ITEMS_OPCHESTPLATE("OP Chestplate", 750000, ""),
     ITEMS_OPLEGGINGS("OP Leggings", 500000, ""),

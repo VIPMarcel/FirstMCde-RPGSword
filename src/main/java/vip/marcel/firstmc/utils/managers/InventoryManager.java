@@ -109,7 +109,21 @@ public class InventoryManager {
                 inventory.setItem(i, this.plugin.getApi().item(Material.RED_STAINED_GLASS_PANE).setNoName().build());
             }
 
-            //TODO: Add Crates to the static inventory
+            inventory.setItem(19, this.plugin.getApi().item(Material.TRIPWIRE_HOOK)
+                    .setDisplayname("§f§l" + ShopItem.CRATES_COMMON.getName() + "§r §7Key (§6" + ShopItem.CRATES_COMMON.getStringPrice() + " §7Coins)")
+                    .build());
+
+            inventory.setItem(30, this.plugin.getApi().item(Material.TRIPWIRE_HOOK)
+                    .setDisplayname("§b§l" + ShopItem.CRATES_UNCOMMON.getName() + "§r §7Key (§6" + ShopItem.CRATES_UNCOMMON.getStringPrice() + " §7Coins)")
+                    .build());
+
+            inventory.setItem(32, this.plugin.getApi().item(Material.TRIPWIRE_HOOK)
+                    .setDisplayname("§c§l" + ShopItem.CRATES_RARE.getName() + "§r §7Key (§6" + ShopItem.CRATES_RARE.getStringPrice() + " §7Coins)")
+                    .build());
+
+            inventory.setItem(25, this.plugin.getApi().item(Material.TRIPWIRE_HOOK)
+                    .setDisplayname("§6§l" + ShopItem.CRATES_LEGENDARY.getName() + "§r §7Key (§6" + ShopItem.CRATES_LEGENDARY.getStringPrice() + " §7Coins)")
+                    .build());
 
             this.inventoryMap.put(InventoryType.SHOP_CRATES, inventory);
         }

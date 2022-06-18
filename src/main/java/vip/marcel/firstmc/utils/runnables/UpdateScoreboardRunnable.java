@@ -7,6 +7,8 @@ import org.bukkit.scoreboard.DisplaySlot;
 import vip.marcel.firstmc.RPGSword;
 import vip.marcel.firstmc.utils.player.RPGPlayer;
 
+import java.text.MessageFormat;
+
 public class UpdateScoreboardRunnable extends BukkitRunnable {
 
     private final RPGSword plugin;
@@ -39,7 +41,7 @@ public class UpdateScoreboardRunnable extends BukkitRunnable {
                             .addUpdateableRow(4, "§8» ", "§e" + rpgPlayers.getLevel())
                             .addClearRow(3)
                             .addFixRow(2, "§7RPG-Coins")
-                            .addUpdateableRow(1, "§8» ", "§a" + rpgPlayers.getRPGCoins())
+                            .addUpdateableRow(1, "§8» ", "§a" + MessageFormat.format("{0}", rpgPlayers.getRPGCoins()))
                             .addClearRow(0)
 
                             .build();
@@ -47,7 +49,7 @@ public class UpdateScoreboardRunnable extends BukkitRunnable {
                     this.plugin.getApi().getScoreboardBuilder().updateRow(players, 10, "§8x§b" + rpgPlayers.getMultiplikator());
                     this.plugin.getApi().getScoreboardBuilder().updateRow(players, 7, "§c" + rpgPlayers.getPrestigeLevel());
                     this.plugin.getApi().getScoreboardBuilder().updateRow(players, 4, "§e" + rpgPlayers.getLevel());
-                    this.plugin.getApi().getScoreboardBuilder().updateRow(players, 1, "§a" + rpgPlayers.getRPGCoins());
+                    this.plugin.getApi().getScoreboardBuilder().updateRow(players, 1, "§a" + MessageFormat.format("{0}", rpgPlayers.getRPGCoins()));
                 }
             }
 
