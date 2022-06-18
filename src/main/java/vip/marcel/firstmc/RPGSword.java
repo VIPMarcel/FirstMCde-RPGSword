@@ -1,5 +1,6 @@
 package vip.marcel.firstmc;
 
+import com.google.common.collect.Lists;
 import com.google.common.collect.Maps;
 import org.bukkit.entity.Player;
 import org.bukkit.inventory.ItemStack;
@@ -16,6 +17,7 @@ import vip.marcel.firstmc.utils.runnables.*;
 import vip.marcel.pluginapi.PluginAPI;
 
 import java.io.File;
+import java.util.List;
 import java.util.Map;
 import java.util.WeakHashMap;
 
@@ -29,6 +31,8 @@ public class RPGSword extends JavaPlugin {
     private Map<Integer, SwordLevel> swordLevelMap;
     private Map<Integer, PrestigeLevel> prestigeLevelMap;
     private Map<Player, ShopItem> shopConfirmItem;
+
+    private List<Player> editModePlayerList;
 
     private int maxSwordLevel;
 
@@ -57,6 +61,8 @@ public class RPGSword extends JavaPlugin {
         this.prestigeLevelMap = Maps.newConcurrentMap();
         this.shopConfirmItem = Maps.newConcurrentMap();
 
+        this.editModePlayerList = Lists.newArrayList();
+
         this.maxSwordLevel = 20;
 
         this.configManager = new ConfigManager(this);
@@ -74,9 +80,13 @@ public class RPGSword extends JavaPlugin {
         pluginManager.registerEvents(new EntityDamageByEntityListener(this), this);
         pluginManager.registerEvents(new InventoryMoveItemListener(this), this);
         pluginManager.registerEvents(new FoodLevelChangeListener(this), this);
-        pluginManager.registerEvents(new AsyncPlayerChatListener(this), this);
+        //pluginManager.registerEvents(new AsyncPlayerChatListener(this), this);
         pluginManager.registerEvents(new EntityDamageListener(this), this);
         pluginManager.registerEvents(new InventoryClickListener(this), this);
+        pluginManager.registerEvents(new PlayerInteractListener(this), this);
+        pluginManager.registerEvents(new BlockBreakListener(this), this);
+        pluginManager.registerEvents(new BlockPlaceListener(this), this);
+        pluginManager.registerEvents(new PlayerArmorStandManipulateListener(this), this);
 
         getCommand("fixsword").setExecutor(new FixSwordCommand(this));
         getCommand("prestige").setExecutor(new PrestigeCommand(this));
@@ -84,6 +94,10 @@ public class RPGSword extends JavaPlugin {
         getCommand("coinshop").setExecutor(new CoinShopCommand(this));
         getCommand("skills").setExecutor(new SkillsCommand(this));
         getCommand("coins").setExecutor(new CoinsCommand(this));
+        getCommand("levelbox").setExecutor(new LevelBoxCommand(this));
+        getCommand("setposition").setExecutor(new SetPositionCommand(this));
+        getCommand("editmode").setExecutor(new EditModeCommand(this));
+        getCommand("prestigetop").setExecutor(new PrestigeTopCommand(this));
 
         new AFKAreaRunnable(this).runTaskTimerAsynchronously(this, 20 * 60, 20 * 60);
         new ActionbarRunnable(this).runTaskTimerAsynchronously(this, 10, 10);
@@ -134,6 +148,10 @@ public class RPGSword extends JavaPlugin {
 
     public Map<Player, ShopItem> getShopConfirmItem() {
         return this.shopConfirmItem;
+    }
+
+    public List<Player> getEditModePlayerList() {
+        return this.editModePlayerList;
     }
 
     public int getMaxSwordLevel() {

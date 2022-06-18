@@ -18,12 +18,12 @@ public record SkillsManager(RPGSword plugin, Player player) {
     }
 
     public void enableSkill(ShopItem shopItem) {
-        player.playSound(player.getLocation(), Sound.ENTITY_PLAYER_LEVELUP, 0.5F, 0.5F);
+        player.playSound(player.getLocation(), Sound.ENTITY_PLAYER_LEVELUP, 0.25F, 0.25F);
         Bukkit.dispatchCommand(Bukkit.getConsoleSender(), "lp user " + player.getName() + " permission set " + shopItem.getPermission() + ".on true");
     }
 
     public void disableSkill(ShopItem shopItem) {
-        player.playSound(player.getLocation(), Sound.BLOCK_NOTE_BLOCK_SNARE, 0.5F, 0.5F);
+        player.playSound(player.getLocation(), Sound.BLOCK_NOTE_BLOCK_SNARE, 0.25F, 0.25F);
         Bukkit.dispatchCommand(Bukkit.getConsoleSender(), "lp user " + player.getName() + " permission set " + shopItem.getPermission() + ".on false");
     }
 

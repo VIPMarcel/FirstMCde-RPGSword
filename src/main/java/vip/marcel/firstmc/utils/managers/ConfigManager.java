@@ -34,6 +34,7 @@ public class ConfigManager {
             try {
                 file.createNewFile();
                 configuration.set("RPGCoins", 0);
+                configuration.set("Player-Multiplikator", 1);
                 configuration.set("Prestige-Level", 0);
                 configuration.set("Level", 1);
                 configuration.set("XP", 0.0);

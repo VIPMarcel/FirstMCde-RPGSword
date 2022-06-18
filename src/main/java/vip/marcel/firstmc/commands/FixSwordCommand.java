@@ -20,7 +20,7 @@ public record FixSwordCommand(RPGSword plugin) implements CommandExecutor {
             if(WorldGuardEvents.isPlayerInAnyRegion(player.getUniqueId(), "Spawn")) {
 
                 rpgPlayer.updateRPGSword();
-                player.sendMessage("§7You have successfully returned your sword.");
+                player.sendMessage("§7§l(§a§l!§7§l)§r §7You have successfully returned your sword.");
 
             } else {
                 player.sendMessage("§7§l(§c§l!§7§l)§r §7You are not in the permitted area.");

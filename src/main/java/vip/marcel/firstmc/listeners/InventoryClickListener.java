@@ -6,6 +6,9 @@ import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.event.inventory.InventoryClickEvent;
+import org.bukkit.inventory.ItemStack;
+import org.bukkit.inventory.meta.ItemMeta;
+import org.bukkit.potion.PotionType;
 import vip.marcel.firstmc.RPGSword;
 import vip.marcel.firstmc.utils.enums.InventoryType;
 import vip.marcel.firstmc.utils.enums.ShopItem;
@@ -279,7 +282,13 @@ public record InventoryClickListener(RPGSword plugin) implements Listener {
                     else if(shopItem.getName().startsWith("OP")) {
 
                         if(shopManager.grandItem(shopItem)) {
-                            player.getInventory().addItem(event.getInventory().getItem(13));
+
+                            ItemStack item = event.getInventory().getItem(13);
+                            ItemMeta itemMeta = item.getItemMeta();
+                            itemMeta.setDisplayName("§c§l" + itemMeta.getDisplayName().split(" ")[0] + " " + itemMeta.getDisplayName().split(" ")[1]);
+                            item.setItemMeta(itemMeta);
+
+                            player.getInventory().addItem(item);
                             player.sendTitle("§aSuccessfully bought", "§7" + shopItem.getName());
                             player.closeInventory();
                             player.playSound(player.getLocation(), Sound.ENTITY_PLAYER_LEVELUP, 0.5F, 0.5F);
@@ -316,8 +325,24 @@ public record InventoryClickListener(RPGSword plugin) implements Listener {
 
                     if(skillsManager.hasSkillEnabled(ShopItem.SKILLS_STRENGHT1)) {
                         skillsManager.disableSkill(ShopItem.SKILLS_STRENGHT1);
+                        event.setCurrentItem(this.plugin.getApi().item(Material.POTION)
+                                //.addPotionCustomEffect(new PotionEffect(PotionEffectType.INCREASE_DAMAGE, 0, 0), true)
+                                .setBasePotionData(PotionType.STRENGTH)
+                                .setDisplayname("§c§l" + ShopItem.SKILLS_STRENGHT1.getName() + " §7§lSkill")
+                                .setLore("§7You get a permanent effect of §c" + ShopItem.SKILLS_STRENGHT1.getName() + " §7in the §e§lRPG World§r§7.",
+                                        "",
+                                        "§a§lActivated")
+                                .build());
                     } else {
                         skillsManager.enableSkill(ShopItem.SKILLS_STRENGHT1);
+                        event.setCurrentItem(this.plugin.getApi().item(Material.POTION)
+                                //.addPotionCustomEffect(new PotionEffect(PotionEffectType.INCREASE_DAMAGE, 0, 0), true)
+                                .setBasePotionData(PotionType.STRENGTH)
+                                .setDisplayname("§c§l" + ShopItem.SKILLS_STRENGHT1.getName() + " §7§lSkill")
+                                .setLore("§7You get a permanent effect of §c" + ShopItem.SKILLS_STRENGHT1.getName() + " §7in the §e§lRPG World§r§7.",
+                                        "",
+                                        "§c§lNot active")
+                                .build());
                     }
 
                 }
@@ -327,8 +352,24 @@ public record InventoryClickListener(RPGSword plugin) implements Listener {
 
                     if(skillsManager.hasSkillEnabled(ShopItem.SKILLS_STRENGHT2)) {
                         skillsManager.disableSkill(ShopItem.SKILLS_STRENGHT2);
+                        event.setCurrentItem(this.plugin.getApi().item(Material.POTION)
+                                //.addPotionCustomEffect(new PotionEffect(PotionEffectType.INCREASE_DAMAGE, 0, 1), true)
+                                .setBasePotionData(PotionType.STRENGTH)
+                                .setDisplayname("§c§l" + ShopItem.SKILLS_STRENGHT2.getName() + " §7§lSkill")
+                                .setLore("§7You get a permanent effect of §c" + ShopItem.SKILLS_STRENGHT2.getName() + " §7in the §e§lRPG World§r§7.",
+                                        "",
+                                        "§c§lNot active")
+                                .build());
                     } else {
                         skillsManager.enableSkill(ShopItem.SKILLS_STRENGHT2);
+                        event.setCurrentItem(this.plugin.getApi().item(Material.POTION)
+                                //.addPotionCustomEffect(new PotionEffect(PotionEffectType.INCREASE_DAMAGE, 0, 1), true)
+                                .setBasePotionData(PotionType.STRENGTH)
+                                .setDisplayname("§c§l" + ShopItem.SKILLS_STRENGHT2.getName() + " §7§lSkill")
+                                .setLore("§7You get a permanent effect of §c" + ShopItem.SKILLS_STRENGHT2.getName() + " §7in the §e§lRPG World§r§7.",
+                                        "",
+                                        "§a§lActivated")
+                                .build());
                     }
 
                 }
@@ -338,8 +379,24 @@ public record InventoryClickListener(RPGSword plugin) implements Listener {
 
                     if(skillsManager.hasSkillEnabled(ShopItem.SKILLS_SPEED1)) {
                         skillsManager.disableSkill(ShopItem.SKILLS_SPEED1);
+                        event.setCurrentItem(this.plugin.getApi().item(Material.POTION)
+                                //.addPotionCustomEffect(new PotionEffect(PotionEffectType.SPEED, 0, 0), true)
+                                .setBasePotionData(PotionType.SPEED)
+                                .setDisplayname("§c§l" + ShopItem.SKILLS_SPEED1.getName() + " §7§lSkill")
+                                .setLore("§7You get a permanent effect of §c" + ShopItem.SKILLS_SPEED1.getName() + " §7in the §e§lRPG World§r§7.",
+                                        "",
+                                        "§c§lNot active")
+                                .build());
                     } else {
                         skillsManager.enableSkill(ShopItem.SKILLS_SPEED1);
+                        event.setCurrentItem(this.plugin.getApi().item(Material.POTION)
+                                //.addPotionCustomEffect(new PotionEffect(PotionEffectType.SPEED, 0, 0), true)
+                                .setBasePotionData(PotionType.SPEED)
+                                .setDisplayname("§c§l" + ShopItem.SKILLS_SPEED1.getName() + " §7§lSkill")
+                                .setLore("§7You get a permanent effect of §c" + ShopItem.SKILLS_SPEED1.getName() + " §7in the §e§lRPG World§r§7.",
+                                        "",
+                                        "§a§lActivated")
+                                .build());
                     }
 
                 }
@@ -349,8 +406,24 @@ public record InventoryClickListener(RPGSword plugin) implements Listener {
 
                     if(skillsManager.hasSkillEnabled(ShopItem.SKILLS_SPEED2)) {
                         skillsManager.disableSkill(ShopItem.SKILLS_SPEED2);
+                        event.setCurrentItem(this.plugin.getApi().item(Material.POTION)
+                                //.addPotionCustomEffect(new PotionEffect(PotionEffectType.SPEED, 0, 1), true)
+                                .setBasePotionData(PotionType.SPEED)
+                                .setDisplayname("§c§l" + ShopItem.SKILLS_SPEED2.getName() + " §7§lSkill")
+                                .setLore("§7You get a permanent effect of §c" + ShopItem.SKILLS_SPEED2.getName() + " §7in the §e§lRPG World§r§7.",
+                                        "",
+                                        "§c§lNot active")
+                                .build());
                     } else {
                         skillsManager.enableSkill(ShopItem.SKILLS_SPEED2);
+                        event.setCurrentItem(this.plugin.getApi().item(Material.POTION)
+                                //.addPotionCustomEffect(new PotionEffect(PotionEffectType.SPEED, 0, 1), true)
+                                .setBasePotionData(PotionType.SPEED)
+                                .setDisplayname("§c§l" + ShopItem.SKILLS_SPEED2.getName() + " §7§lSkill")
+                                .setLore("§7You get a permanent effect of §c" + ShopItem.SKILLS_SPEED2.getName() + " §7in the §e§lRPG World§r§7.",
+                                        "",
+                                        "§a§lActivated")
+                                .build());
                     }
 
                 }
@@ -360,8 +433,24 @@ public record InventoryClickListener(RPGSword plugin) implements Listener {
 
                     if(skillsManager.hasSkillEnabled(ShopItem.SKILLS_NIGHTVISION)) {
                         skillsManager.disableSkill(ShopItem.SKILLS_NIGHTVISION);
+                        event.setCurrentItem(this.plugin.getApi().item(Material.POTION)
+                                //.addPotionCustomEffect(new PotionEffect(PotionEffectType.NIGHT_VISION, 0, 0), true)
+                                .setBasePotionData(PotionType.NIGHT_VISION)
+                                .setDisplayname("§c§l" + ShopItem.SKILLS_NIGHTVISION.getName() + " §7§lSkill")
+                                .setLore("§7You get a permanent effect of §c" + ShopItem.SKILLS_NIGHTVISION.getName() + " §7in the §e§lRPG World§r§7.",
+                                        "",
+                                        "§c§lNot active")
+                                .build());
                     } else {
                         skillsManager.enableSkill(ShopItem.SKILLS_NIGHTVISION);
+                        event.setCurrentItem(this.plugin.getApi().item(Material.POTION)
+                                //.addPotionCustomEffect(new PotionEffect(PotionEffectType.NIGHT_VISION, 0, 0), true)
+                                .setBasePotionData(PotionType.NIGHT_VISION)
+                                .setDisplayname("§c§l" + ShopItem.SKILLS_NIGHTVISION.getName() + " §7§lSkill")
+                                .setLore("§7You get a permanent effect of §c" + ShopItem.SKILLS_NIGHTVISION.getName() + " §7in the §e§lRPG World§r§7.",
+                                        "",
+                                        "§a§lActivated")
+                                .build());
                     }
 
                 }
@@ -371,8 +460,24 @@ public record InventoryClickListener(RPGSword plugin) implements Listener {
 
                     if(skillsManager.hasSkillEnabled(ShopItem.SKILLS_JUMPBOOST1)) {
                         skillsManager.disableSkill(ShopItem.SKILLS_JUMPBOOST1);
+                        event.setCurrentItem(this.plugin.getApi().item(Material.POTION)
+                                //.addPotionCustomEffect(new PotionEffect(PotionEffectType.JUMP, 0, 0), true)
+                                .setBasePotionData(PotionType.JUMP)
+                                .setDisplayname("§c§l" + ShopItem.SKILLS_JUMPBOOST1.getName() + " §7§lSkill")
+                                .setLore("§7You get a permanent effect of §c" + ShopItem.SKILLS_JUMPBOOST1.getName() + " §7in the §e§lRPG World§r§7.",
+                                        "",
+                                        "§c§lNot active")
+                                .build());
                     } else {
                         skillsManager.enableSkill(ShopItem.SKILLS_JUMPBOOST1);
+                        event.setCurrentItem(this.plugin.getApi().item(Material.POTION)
+                                //.addPotionCustomEffect(new PotionEffect(PotionEffectType.JUMP, 0, 0), true)
+                                .setBasePotionData(PotionType.JUMP)
+                                .setDisplayname("§c§l" + ShopItem.SKILLS_JUMPBOOST1.getName() + " §7§lSkill")
+                                .setLore("§7You get a permanent effect of §c" + ShopItem.SKILLS_JUMPBOOST1.getName() + " §7in the §e§lRPG World§r§7.",
+                                        "",
+                                        "§a§lActivated")
+                                .build());
                     }
 
                 }
@@ -382,8 +487,24 @@ public record InventoryClickListener(RPGSword plugin) implements Listener {
 
                     if(skillsManager.hasSkillEnabled(ShopItem.SKILLS_JUMPBOOST2)) {
                         skillsManager.disableSkill(ShopItem.SKILLS_JUMPBOOST2);
+                        event.setCurrentItem(this.plugin.getApi().item(Material.POTION)
+                                //.addPotionCustomEffect(new PotionEffect(PotionEffectType.JUMP, 0, 1), true)
+                                .setBasePotionData(PotionType.JUMP)
+                                .setDisplayname("§c§l" + ShopItem.SKILLS_JUMPBOOST2.getName() + " §7§lSkill")
+                                .setLore("§7You get a permanent effect of §c" + ShopItem.SKILLS_JUMPBOOST2.getName() + " §7in the §e§lRPG World§r§7.",
+                                        "",
+                                        "§c§lNot active")
+                                .build());
                     } else {
                         skillsManager.enableSkill(ShopItem.SKILLS_JUMPBOOST2);
+                        event.setCurrentItem(this.plugin.getApi().item(Material.POTION)
+                                //.addPotionCustomEffect(new PotionEffect(PotionEffectType.JUMP, 0, 1), true)
+                                .setBasePotionData(PotionType.JUMP)
+                                .setDisplayname("§c§l" + ShopItem.SKILLS_JUMPBOOST2.getName() + " §7§lSkill")
+                                .setLore("§7You get a permanent effect of §c" + ShopItem.SKILLS_JUMPBOOST2.getName() + " §7in the §e§lRPG World§r§7.",
+                                        "",
+                                        "§a§lActivated")
+                                .build());
                     }
 
                 }
@@ -393,8 +514,24 @@ public record InventoryClickListener(RPGSword plugin) implements Listener {
 
                     if(skillsManager.hasSkillEnabled(ShopItem.SKILLS_REGENERATION1)) {
                         skillsManager.disableSkill(ShopItem.SKILLS_REGENERATION1);
+                        event.setCurrentItem(this.plugin.getApi().item(Material.POTION)
+                                //.addPotionCustomEffect(new PotionEffect(PotionEffectType.REGENERATION, 0, 0), true)
+                                .setBasePotionData(PotionType.REGEN)
+                                .setDisplayname("§c§l" + ShopItem.SKILLS_REGENERATION1.getName() + " §7§lSkill")
+                                .setLore("§7You get a permanent effect of §c" + ShopItem.SKILLS_REGENERATION1.getName() + " §7in the §e§lRPG World§r§7.",
+                                        "",
+                                        "§c§lNot active")
+                                .build());
                     } else {
                         skillsManager.enableSkill(ShopItem.SKILLS_REGENERATION1);
+                        event.setCurrentItem(this.plugin.getApi().item(Material.POTION)
+                                //.addPotionCustomEffect(new PotionEffect(PotionEffectType.REGENERATION, 0, 0), true)
+                                .setBasePotionData(PotionType.REGEN)
+                                .setDisplayname("§c§l" + ShopItem.SKILLS_REGENERATION1.getName() + " §7§lSkill")
+                                .setLore("§7You get a permanent effect of §c" + ShopItem.SKILLS_REGENERATION1.getName() + " §7in the §e§lRPG World§r§7.",
+                                        "",
+                                        "§a§lActivated")
+                                .build());
                     }
 
                 }
@@ -404,8 +541,24 @@ public record InventoryClickListener(RPGSword plugin) implements Listener {
 
                     if(skillsManager.hasSkillEnabled(ShopItem.SKILLS_REGENERATION2)) {
                         skillsManager.disableSkill(ShopItem.SKILLS_REGENERATION2);
+                        event.setCurrentItem(this.plugin.getApi().item(Material.POTION)
+                                //.addPotionCustomEffect(new PotionEffect(PotionEffectType.REGENERATION, 0, 1), true)
+                                .setBasePotionData(PotionType.REGEN)
+                                .setDisplayname("§c§l" + ShopItem.SKILLS_REGENERATION2.getName() + " §7§lSkill")
+                                .setLore("§7You get a permanent effect of §c" + ShopItem.SKILLS_REGENERATION2.getName() + " §7in the §e§lRPG World§r§7.",
+                                        "",
+                                        "§c§lNot active")
+                                .build());
                     } else {
                         skillsManager.enableSkill(ShopItem.SKILLS_REGENERATION2);
+                        event.setCurrentItem(this.plugin.getApi().item(Material.POTION)
+                                //.addPotionCustomEffect(new PotionEffect(PotionEffectType.REGENERATION, 0, 1), true)
+                                .setBasePotionData(PotionType.REGEN)
+                                .setDisplayname("§c§l" + ShopItem.SKILLS_REGENERATION2.getName() + " §7§lSkill")
+                                .setLore("§7You get a permanent effect of §c" + ShopItem.SKILLS_REGENERATION2.getName() + " §7in the §e§lRPG World§r§7.",
+                                        "",
+                                        "§a§lActivated")
+                                .build());
                     }
 
                 }

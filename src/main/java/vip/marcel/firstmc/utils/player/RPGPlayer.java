@@ -23,6 +23,25 @@ public record RPGPlayer(RPGSword plugin, Player player) {
 
     }
 
+    public void setRPGCoins(int amount) {
+
+        if(player == null) {
+            new NullPointerException("The player ist null (not online).");
+        }
+
+        final File file = this.plugin.getPlayerFileMap().get(player);
+        final YamlConfiguration configuration = YamlConfiguration.loadConfiguration(file);
+
+        configuration.set("RPGCoins", amount);
+        try {
+            configuration.save(file);
+        } catch(IOException e) {
+            e.printStackTrace();
+        }
+        this.plugin.getPlayerFileMap().put(player, file);
+
+    }
+
     public void grandRPGCoins(int amount) {
 
         if(player == null) {
@@ -74,6 +93,25 @@ public record RPGPlayer(RPGSword plugin, Player player) {
 
     }
 
+    public void setPrestigeLevel(int amount) {
+
+        if(player == null) {
+            new NullPointerException("The player ist null (not online).");
+        }
+
+        final File file = this.plugin.getPlayerFileMap().get(player);
+        final YamlConfiguration configuration = YamlConfiguration.loadConfiguration(file);
+
+        configuration.set("Prestige-Level", amount);
+        try {
+            configuration.save(file);
+        } catch(IOException e) {
+            e.printStackTrace();
+        }
+        this.plugin.getPlayerFileMap().put(player, file);
+
+    }
+
     public void grandPrestigeLevel() {
 
         if(player == null) {
@@ -103,6 +141,25 @@ public record RPGPlayer(RPGSword plugin, Player player) {
         final YamlConfiguration configuration = YamlConfiguration.loadConfiguration(file);
 
         return configuration.getInt("Level");
+
+    }
+
+    public void setLevel(int amount) {
+
+        if(player == null) {
+            new NullPointerException("The player ist null (not online).");
+        }
+
+        final File file = this.plugin.getPlayerFileMap().get(player);
+        final YamlConfiguration configuration = YamlConfiguration.loadConfiguration(file);
+
+        configuration.set("Level", amount);
+        try {
+            configuration.save(file);
+        } catch(IOException e) {
+            e.printStackTrace();
+        }
+        this.plugin.getPlayerFileMap().put(player, file);
 
     }
 
@@ -154,6 +211,25 @@ public record RPGPlayer(RPGSword plugin, Player player) {
         final YamlConfiguration configuration = YamlConfiguration.loadConfiguration(file);
 
         return configuration.getDouble("XP");
+
+    }
+
+    public void setExperience(double amount) {
+
+        if(player == null) {
+            new NullPointerException("The player ist null (not online).");
+        }
+
+        final File file = this.plugin.getPlayerFileMap().get(player);
+        final YamlConfiguration configuration = YamlConfiguration.loadConfiguration(file);
+
+        configuration.set("XP", amount);
+        try {
+            configuration.save(file);
+        } catch(IOException e) {
+            e.printStackTrace();
+        }
+        this.plugin.getPlayerFileMap().put(player, file);
 
     }
 
@@ -218,6 +294,57 @@ public record RPGPlayer(RPGSword plugin, Player player) {
         final YamlConfiguration configuration = YamlConfiguration.loadConfiguration(file);
 
         configuration.set("Multiplikator", amount);
+        try {
+            configuration.save(file);
+        } catch(IOException e) {
+            e.printStackTrace();
+        }
+        this.plugin.getPlayerFileMap().put(player, file);
+
+    }
+
+    public int getPlayerMultiplikator() {
+
+        if(player == null) {
+            new NullPointerException("The player ist null (not online).");
+        }
+
+        final File file = this.plugin.getPlayerFileMap().get(player);
+        final YamlConfiguration configuration = YamlConfiguration.loadConfiguration(file);
+
+        return configuration.getInt("Player-Multiplikator");
+
+    }
+
+    public void setPlayerMultiplikator(int amount) {
+
+        if(player == null) {
+            new NullPointerException("The player ist null (not online).");
+        }
+
+        final File file = this.plugin.getPlayerFileMap().get(player);
+        final YamlConfiguration configuration = YamlConfiguration.loadConfiguration(file);
+
+        configuration.set("Player-Multiplikator", amount);
+        try {
+            configuration.save(file);
+        } catch(IOException e) {
+            e.printStackTrace();
+        }
+        this.plugin.getPlayerFileMap().put(player, file);
+
+    }
+
+    public void grandPlayerMultiplikator(int amount) {
+
+        if(player == null) {
+            new NullPointerException("The player ist null (not online).");
+        }
+
+        final File file = this.plugin.getPlayerFileMap().get(player);
+        final YamlConfiguration configuration = YamlConfiguration.loadConfiguration(file);
+
+        configuration.set("Player-Multiplikator", configuration.getInt("Player-Multiplikator") + amount);
         try {
             configuration.save(file);
         } catch(IOException e) {

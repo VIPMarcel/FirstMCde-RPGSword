@@ -27,6 +27,14 @@ permissions:
     default: false
   rpg.shop.skills.regeneration2.on:
     default: false
+  rpg.admin:
+    default: OP
+  rpg.command.levelbox:
+    default: OP
+  rpg.command.setposition:
+    default: OP
+  rpg.command.editmode:
+    default: OP
 
 commands:
   fixsword:
@@ -42,3 +50,12 @@ commands:
     description: opens your bought skills inventory
   coins:
     description: shows your coins amount
+  levelbox:
+    description: teleports to your current level, loot box
+  setposition:
+    description: create a server location point
+  editmode:
+    description: sets you in edit mode, to change the map
+    aliases: [buildmode]
+  prestigetop:
+    description: shows you the top 10 prestige level players

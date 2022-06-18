@@ -15,6 +15,7 @@ public record PlayerQuitListener(RPGSword plugin) implements Listener {
         this.plugin.getConfigManager().setPlayerFile(player.getUniqueId(), this.plugin.getPlayerFileMap().get(player));
         this.plugin.getPlayerFileMap().remove(player);
         this.plugin.getRPGPlayerMap().remove(player);
+        this.plugin.getEditModePlayerList().remove(player);
     }
 
 }
