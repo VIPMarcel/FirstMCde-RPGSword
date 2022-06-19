@@ -30,7 +30,12 @@ public record EntityDeathListener(RPGSword plugin) implements Listener {
                 event.setDroppedExp(0);
                 killer.playSound(killer.getLocation(), Sound.BLOCK_LEVER_CLICK, 0.1F, 0.1F);
 
-                int grandCoins = this.plugin.getSwordLevelMap().get(rpgPlayer.getLevel()).getCoinsPerKill() * rpgPlayer.getPlayerMultiplikator();
+                int grandCoins;
+                if(rpgPlayer.getPlayerMultiplikator() == 1) {
+                    grandCoins = this.plugin.getSwordLevelMap().get(rpgPlayer.getLevel()).getCoinsPerKill() * rpgPlayer.getPlayerMultiplikator();
+                } else {
+                    grandCoins = this.plugin.getSwordLevelMap().get(rpgPlayer.getLevel()).getCoinsPerKill() * (rpgPlayer.getPlayerMultiplikator() - 1);
+                }
 
                 this.plugin.getApi().hologram(entity.getLocation().subtract(0, 1, 0), "§a§l+ §7" + grandCoins + " Coins").showHologramForPlayerTemporary(killer, 15);
 

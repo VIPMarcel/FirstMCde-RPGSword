@@ -23,7 +23,7 @@ public class AFKAreaRunnable extends BukkitRunnable {
 
                 final RPGPlayer rpgPlayers = this.plugin.getRPGPlayerMap().get(players);
 
-                rpgPlayers.grandRPGCoins(25);
+                rpgPlayers.grandRPGCoins(50);
 
             }
         });

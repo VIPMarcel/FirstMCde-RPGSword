@@ -27,7 +27,15 @@ public record CoinsCommand(RPGSword plugin) implements CommandExecutor {
 
             if(arguments.length == 0) {
 
+                int multiplier;
+                if(rpgPlayer.getPlayerMultiplikator() == 1) {
+                    multiplier = rpgPlayer.getPlayerMultiplikator();
+                } else {
+                    multiplier = (rpgPlayer.getPlayerMultiplikator() - 1);
+                }
+
                 player.sendMessage("§7§l(§a!§7§l)§r §7You have §a" + rpgPlayer.getRPGCoins() + " §7Coins.");
+                player.sendMessage("§7§l(§a!§7§l)§r §7And a coins multiplier of §a" + multiplier + "§7.");
 
             } else if(arguments.length == 2) {
 
@@ -51,7 +59,16 @@ public record CoinsCommand(RPGSword plugin) implements CommandExecutor {
                     final YamlConfiguration configuration = YamlConfiguration.loadConfiguration(playerFile);
 
                     int playerCoins = configuration.getInt("RPGCoins");
+
+                    int multiplier;
+                    if(configuration.getInt("Player-Multiplikator") == 1) {
+                        multiplier = configuration.getInt("Player-Multiplikator");
+                    } else {
+                        multiplier = (configuration.getInt("Player-Multiplikator") - 1);
+                    }
+
                     player.sendMessage("§7§l(§a!§7§l)§r §a" + playerName + "§7 has §a" + playerCoins + " §7Coins.");
+                    player.sendMessage("§7§l(§a!§7§l)§r §7And a coins multiplier of §a" + multiplier + "§7.");
 
                 } else if(arguments[0].equalsIgnoreCase("withdraw")) {
 

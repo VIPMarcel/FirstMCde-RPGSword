@@ -51,7 +51,7 @@ commands:
   coins:
     description: shows your coins amount
   levelbox:
-    description: teleports to your current level, loot box
+    description: teleports to your current level, loot area
   setposition:
     description: create a server location point
   editmode:
@@ -61,3 +61,9 @@ commands:
     description: shows you the top 10 prestige level players
   discord:
     description: shows the discord url
+  adress:
+    description: shows the server adress
+    aliases: [ip, server]
+  afk:
+    description: teleports to the afk area
+    aliases: [awayfromkeyboard]

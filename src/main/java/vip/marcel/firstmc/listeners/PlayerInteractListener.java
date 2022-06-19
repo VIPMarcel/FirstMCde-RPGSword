@@ -64,12 +64,65 @@ public record PlayerInteractListener(RPGSword plugin) implements Listener {
 
                             event.setCancelled(true);
 
-                            player.getInventory().setItemInMainHand(null);
+                            if(player.getInventory().getItemInMainHand().getAmount() == 1) {
+                                player.getInventory().setItemInMainHand(null);
+                            } else {
+                                player.getInventory().getItemInMainHand().setAmount(player.getInventory().getItemInMainHand().getAmount() - 1);
+                            }
 
                             rpgPlayer.grandRPGCoins(coinsAmount);
 
                             player.playSound(player.getLocation(), Sound.ENTITY_PLAYER_LEVELUP, 0.5F, 0.25F);
                             player.sendMessage("§7§l(§a!§7§l)§r §7Used §acoin coupon §7with value §a" + coinsAmount + "$§7");
+
+                        }
+
+                    }
+
+                }
+
+            }
+
+            if(event.getItem().getType() == Material.BLAZE_ROD) {
+
+                if(event.getItem().getItemMeta().isUnbreakable()) {
+
+                    if(event.getItem().getItemMeta().hasItemFlag(ItemFlag.HIDE_ENCHANTS)) {
+
+                        if(event.getItem().getItemMeta().hasEnchant(Enchantment.VANISHING_CURSE)) {
+
+                            if(!event.getHand().equals(EquipmentSlot.HAND)) {
+                                return;
+                            }
+
+                            if(event.getItem().getItemMeta().getLore().get(0) == null) {
+                                return;
+                            }
+
+                            if(!event.getItem().getItemMeta().getDisplayName().equals("§6§lCoins §6§lMultiplier")) {
+                                return;
+                            }
+
+                            String lore = event.getItem().getItemMeta().getLore().get(0).trim();
+                            lore = lore.replaceAll("§6x", "")
+                                    .replaceAll("§7", "")
+                                    .replaceAll(" ", "")
+                                    .replaceAll("Multiplier", "");
+
+                            int multiplierAmount = Integer.parseInt(lore);
+
+                            event.setCancelled(true);
+
+                            if(player.getInventory().getItemInMainHand().getAmount() == 1) {
+                                player.getInventory().setItemInMainHand(null);
+                            } else {
+                                player.getInventory().getItemInMainHand().setAmount(player.getInventory().getItemInMainHand().getAmount() - 1);
+                            }
+
+                            rpgPlayer.grandPlayerMultiplikator(multiplierAmount);
+
+                            player.playSound(player.getLocation(), Sound.ENTITY_PLAYER_LEVELUP, 0.5F, 0.25F);
+                            player.sendMessage("§7§l(§a!§7§l)§r §7Used §acoin multiplier §7with value §ax" + multiplierAmount + "§7");
 
                         }
 
