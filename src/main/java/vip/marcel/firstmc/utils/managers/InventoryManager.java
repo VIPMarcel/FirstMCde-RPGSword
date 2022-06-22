@@ -232,7 +232,7 @@ public class InventoryManager {
                             //.addPotionCustomEffect(new PotionEffect(PotionEffectType.INCREASE_DAMAGE, 0, 0), true)
                             .setBasePotionData(PotionType.STRENGTH)
                             .setDisplayname("§c§l" + ShopItem.SKILLS_STRENGHT1.getName() + " §7§lSkill§r §7(§6" + ShopItem.SKILLS_STRENGHT1.getStringPrice() + " §7Coins)")
-                            .setLore("§7You get a permanent effect of §c" + ShopItem.SKILLS_STRENGHT1.getName() + " §7in the §e§lRPG World§r§7.",
+                            .setLore("§7You get a permanent effect of §c" + ShopItem.SKILLS_STRENGHT1.getName() + "§7.",
                                     "",
                                     "§a§lAlready purchased")
                             .build());
@@ -241,7 +241,7 @@ public class InventoryManager {
                             //.addPotionCustomEffect(new PotionEffect(PotionEffectType.INCREASE_DAMAGE, 0, 0), true)
                             .setBasePotionData(PotionType.STRENGTH)
                             .setDisplayname("§c§l" + ShopItem.SKILLS_STRENGHT1.getName() + " §7§lSkill§r §7(§6" + ShopItem.SKILLS_STRENGHT1.getStringPrice() + " §7Coins)")
-                            .setLore("§7You get a permanent effect of §c" + ShopItem.SKILLS_STRENGHT1.getName() + " §7in the §e§lRPG World§r§7.",
+                            .setLore("§7You get a permanent effect of §c" + ShopItem.SKILLS_STRENGHT1.getName() + "§7.",
                                     "",
                                     "§c§lNot purchased yet")
                             .build());
@@ -252,7 +252,7 @@ public class InventoryManager {
                             //.addPotionCustomEffect(new PotionEffect(PotionEffectType.INCREASE_DAMAGE, 0, 1), true)
                             .setBasePotionData(PotionType.STRENGTH)
                             .setDisplayname("§c§l" + ShopItem.SKILLS_STRENGHT2.getName() + " §7§lSkill§r §7(§6" + ShopItem.SKILLS_STRENGHT2.getStringPrice() + " §7Coins)")
-                            .setLore("§7You get a permanent effect of §c" + ShopItem.SKILLS_STRENGHT2.getName() + " §7in the §e§lRPG World§r§7.",
+                            .setLore("§7You get a permanent effect of §c" + ShopItem.SKILLS_STRENGHT2.getName() + "§7.",
                                     "",
                                     "§a§lAlready purchased")
                             .build());
@@ -261,7 +261,7 @@ public class InventoryManager {
                             //.addPotionCustomEffect(new PotionEffect(PotionEffectType.INCREASE_DAMAGE, 0, 1), true)
                             .setBasePotionData(PotionType.STRENGTH)
                             .setDisplayname("§c§l" + ShopItem.SKILLS_STRENGHT2.getName() + " §7§lSkill§r §7(§6" + ShopItem.SKILLS_STRENGHT2.getStringPrice() + " §7Coins)")
-                            .setLore("§7You get a permanent effect of §c" + ShopItem.SKILLS_STRENGHT2.getName() + " §7in the §e§lRPG World§r§7.",
+                            .setLore("§7You get a permanent effect of §c" + ShopItem.SKILLS_STRENGHT2.getName() + "§7.",
                                     "",
                                     "§c§lNot purchased yet")
                             .build());
@@ -272,7 +272,7 @@ public class InventoryManager {
                             //.addPotionCustomEffect(new PotionEffect(PotionEffectType.SPEED, 0, 0), true)
                             .setBasePotionData(PotionType.SPEED)
                             .setDisplayname("§c§l" + ShopItem.SKILLS_SPEED1.getName() + " §7§lSkill§r §7(§6" + ShopItem.SKILLS_SPEED1.getStringPrice() + " §7Coins)")
-                            .setLore("§7You get a permanent effect of §c" + ShopItem.SKILLS_SPEED1.getName() + " §7in the §e§lRPG World§r§7.",
+                            .setLore("§7You get a permanent effect of §c" + ShopItem.SKILLS_SPEED1.getName() + "§7.",
                                     "",
                                     "§a§lAlready purchased")
                             .build());
@@ -281,7 +281,7 @@ public class InventoryManager {
                             //.addPotionCustomEffect(new PotionEffect(PotionEffectType.SPEED, 0, 0), true)
                             .setBasePotionData(PotionType.SPEED)
                             .setDisplayname("§c§l" + ShopItem.SKILLS_SPEED1.getName() + " §7§lSkill§r §7(§6" + ShopItem.SKILLS_SPEED1.getStringPrice() + " §7Coins)")
-                            .setLore("§7You get a permanent effect of §c" + ShopItem.SKILLS_SPEED1.getName() + " §7in the §e§lRPG World§r§7.",
+                            .setLore("§7You get a permanent effect of §c" + ShopItem.SKILLS_SPEED1.getName() + "§7.",
                                     "",
                                     "§c§lNot purchased yet")
                             .build());
@@ -292,7 +292,7 @@ public class InventoryManager {
                             //.addPotionCustomEffect(new PotionEffect(PotionEffectType.SPEED, 0, 1), true)
                             .setBasePotionData(PotionType.SPEED)
                             .setDisplayname("§c§l" + ShopItem.SKILLS_SPEED2.getName() + " §7§lSkill§r §7(§6" + ShopItem.SKILLS_SPEED2.getStringPrice() + " §7Coins)")
-                            .setLore("§7You get a permanent effect of §c" + ShopItem.SKILLS_SPEED2.getName() + " §7in the §e§lRPG World§r§7.",
+                            .setLore("§7You get a permanent effect of §c" + ShopItem.SKILLS_SPEED2.getName() + "§7.",
                                     "",
                                     "§a§lAlready purchased")
                             .build());
@@ -301,7 +301,7 @@ public class InventoryManager {
                             //.addPotionCustomEffect(new PotionEffect(PotionEffectType.SPEED, 0, 1), true)
                             .setBasePotionData(PotionType.SPEED)
                             .setDisplayname("§c§l" + ShopItem.SKILLS_SPEED2.getName() + " §7§lSkill§r §7(§6" + ShopItem.SKILLS_SPEED2.getStringPrice() + " §7Coins)")
-                            .setLore("§7You get a permanent effect of §c" + ShopItem.SKILLS_SPEED2.getName() + " §7in the §e§lRPG World§r§7.",
+                            .setLore("§7You get a permanent effect of §c" + ShopItem.SKILLS_SPEED2.getName() + "§7.",
                                     "",
                                     "§c§lNot purchased yet")
                             .build());
@@ -312,7 +312,7 @@ public class InventoryManager {
                             //.addPotionCustomEffect(new PotionEffect(PotionEffectType.NIGHT_VISION, 0, 0), true)
                             .setBasePotionData(PotionType.NIGHT_VISION)
                             .setDisplayname("§c§l" + ShopItem.SKILLS_NIGHTVISION.getName() + " §7§lSkill§r §7(§6" + ShopItem.SKILLS_NIGHTVISION.getStringPrice() + " §7Coins)")
-                            .setLore("§7You get a permanent effect of §c" + ShopItem.SKILLS_NIGHTVISION.getName() + " §7in the §e§lRPG World§r§7.",
+                            .setLore("§7You get a permanent effect of §c" + ShopItem.SKILLS_NIGHTVISION.getName() + "§7.",
                                     "",
                                     "§a§lAlready purchased")
                             .build());
@@ -321,7 +321,7 @@ public class InventoryManager {
                             //.addPotionCustomEffect(new PotionEffect(PotionEffectType.NIGHT_VISION, 0, 0), true)
                             .setBasePotionData(PotionType.NIGHT_VISION)
                             .setDisplayname("§c§l" + ShopItem.SKILLS_NIGHTVISION.getName() + " §7§lSkill§r §7(§6" + ShopItem.SKILLS_NIGHTVISION.getStringPrice() + " §7Coins)")
-                            .setLore("§7You get a permanent effect of §c" + ShopItem.SKILLS_NIGHTVISION.getName() + " §7in the §e§lRPG World§r§7.",
+                            .setLore("§7You get a permanent effect of §c" + ShopItem.SKILLS_NIGHTVISION.getName() + "§7.",
                                     "",
                                     "§c§lNot purchased yet")
                             .build());
@@ -332,7 +332,7 @@ public class InventoryManager {
                             //.addPotionCustomEffect(new PotionEffect(PotionEffectType.JUMP, 0, 0), true)
                             .setBasePotionData(PotionType.JUMP)
                             .setDisplayname("§c§l" + ShopItem.SKILLS_JUMPBOOST1.getName() + " §7§lSkill§r §7(§6" + ShopItem.SKILLS_JUMPBOOST1.getStringPrice() + " §7Coins)")
-                            .setLore("§7You get a permanent effect of §c" + ShopItem.SKILLS_JUMPBOOST1.getName() + " §7in the §e§lRPG World§r§7.",
+                            .setLore("§7You get a permanent effect of §c" + ShopItem.SKILLS_JUMPBOOST1.getName() + "§7.",
                                     "",
                                     "§a§lAlready purchased")
                             .build());
@@ -341,7 +341,7 @@ public class InventoryManager {
                             //.addPotionCustomEffect(new PotionEffect(PotionEffectType.JUMP, 0, 0), true)
                             .setBasePotionData(PotionType.JUMP)
                             .setDisplayname("§c§l" + ShopItem.SKILLS_JUMPBOOST1.getName() + " §7§lSkill§r §7(§6" + ShopItem.SKILLS_JUMPBOOST1.getStringPrice() + " §7Coins)")
-                            .setLore("§7You get a permanent effect of §c" + ShopItem.SKILLS_JUMPBOOST1.getName() + " §7in the §e§lRPG World§r§7.",
+                            .setLore("§7You get a permanent effect of §c" + ShopItem.SKILLS_JUMPBOOST1.getName() + "§7.",
                                     "",
                                     "§c§lNot purchased yet")
                             .build());
@@ -352,7 +352,7 @@ public class InventoryManager {
                             //.addPotionCustomEffect(new PotionEffect(PotionEffectType.JUMP, 0, 1), true)
                             .setBasePotionData(PotionType.JUMP)
                             .setDisplayname("§c§l" + ShopItem.SKILLS_JUMPBOOST2.getName() + " §7§lSkill§r §7(§6" + ShopItem.SKILLS_JUMPBOOST2.getStringPrice() + " §7Coins)")
-                            .setLore("§7You get a permanent effect of §c" + ShopItem.SKILLS_JUMPBOOST2.getName() + " §7in the §e§lRPG World§r§7.",
+                            .setLore("§7You get a permanent effect of §c" + ShopItem.SKILLS_JUMPBOOST2.getName() + "§7.",
                                     "",
                                     "§a§lAlready purchased")
                             .build());
@@ -361,7 +361,7 @@ public class InventoryManager {
                             //.addPotionCustomEffect(new PotionEffect(PotionEffectType.JUMP, 0, 1), true)
                             .setBasePotionData(PotionType.JUMP)
                             .setDisplayname("§c§l" + ShopItem.SKILLS_JUMPBOOST2.getName() + " §7§lSkill§r §7(§6" + ShopItem.SKILLS_JUMPBOOST2.getStringPrice() + " §7Coins)")
-                            .setLore("§7You get a permanent effect of §c" + ShopItem.SKILLS_JUMPBOOST2.getName() + " §7in the §e§lRPG World§r§7.",
+                            .setLore("§7You get a permanent effect of §c" + ShopItem.SKILLS_JUMPBOOST2.getName() + "§7.",
                                     "",
                                     "§c§lNot purchased yet")
                             .build());
@@ -372,7 +372,7 @@ public class InventoryManager {
                             //.addPotionCustomEffect(new PotionEffect(PotionEffectType.REGENERATION, 0, 0), true)
                             .setBasePotionData(PotionType.REGEN)
                             .setDisplayname("§c§l" + ShopItem.SKILLS_REGENERATION1.getName() + " §7§lSkill§r §7(§6" + ShopItem.SKILLS_REGENERATION1.getStringPrice() + " §7Coins)")
-                            .setLore("§7You get a permanent effect of §c" + ShopItem.SKILLS_REGENERATION1.getName() + " §7in the §e§lRPG World§r§7.",
+                            .setLore("§7You get a permanent effect of §c" + ShopItem.SKILLS_REGENERATION1.getName() + "§7.",
                                     "",
                                     "§a§lAlready purchased")
                             .build());
@@ -381,7 +381,7 @@ public class InventoryManager {
                             //.addPotionCustomEffect(new PotionEffect(PotionEffectType.REGENERATION, 0, 0), true)
                             .setBasePotionData(PotionType.REGEN)
                             .setDisplayname("§c§l" + ShopItem.SKILLS_REGENERATION1.getName() + " §7§lSkill§r §7(§6" + ShopItem.SKILLS_REGENERATION1.getStringPrice() + " §7Coins)")
-                            .setLore("§7You get a permanent effect of §c" + ShopItem.SKILLS_REGENERATION1.getName() + " §7in the §e§lRPG World§r§7.",
+                            .setLore("§7You get a permanent effect of §c" + ShopItem.SKILLS_REGENERATION1.getName() + "§7.",
                                     "",
                                     "§c§lNot purchased yet")
                             .build());
@@ -392,7 +392,7 @@ public class InventoryManager {
                             //.addPotionCustomEffect(new PotionEffect(PotionEffectType.REGENERATION, 0, 1), true)
                             .setBasePotionData(PotionType.REGEN)
                             .setDisplayname("§c§l" + ShopItem.SKILLS_REGENERATION2.getName() + " §7§lSkill§r §7(§6" + ShopItem.SKILLS_REGENERATION2.getStringPrice() + " §7Coins)")
-                            .setLore("§7You get a permanent effect of §c" + ShopItem.SKILLS_REGENERATION2.getName() + " §7in the §e§lRPG World§r§7.",
+                            .setLore("§7You get a permanent effect of §c" + ShopItem.SKILLS_REGENERATION2.getName() + "§7.",
                                     "",
                                     "§a§lAlready purchased")
                             .build());
@@ -401,7 +401,7 @@ public class InventoryManager {
                             //.addPotionCustomEffect(new PotionEffect(PotionEffectType.REGENERATION, 0, 1), true)
                             .setBasePotionData(PotionType.REGEN)
                             .setDisplayname("§c§l" + ShopItem.SKILLS_REGENERATION2.getName() + " §7§lSkill§r §7(§6" + ShopItem.SKILLS_REGENERATION2.getStringPrice() + " §7Coins)")
-                            .setLore("§7You get a permanent effect of §c" + ShopItem.SKILLS_REGENERATION2.getName() + " §7in the §e§lRPG World§r§7.",
+                            .setLore("§7You get a permanent effect of §c" + ShopItem.SKILLS_REGENERATION2.getName() + "§7.",
                                     "",
                                     "§c§lNot purchased yet")
                             .build());
@@ -498,7 +498,7 @@ public class InventoryManager {
                                 //.addPotionCustomEffect(new PotionEffect(PotionEffectType.INCREASE_DAMAGE, 0, 0), true)
                                 .setBasePotionData(PotionType.STRENGTH)
                                 .setDisplayname("§c§l" + ShopItem.SKILLS_STRENGHT1.getName() + " §7§lSkill")
-                                .setLore("§7You get a permanent effect of §c" + ShopItem.SKILLS_STRENGHT1.getName() + " §7in the §e§lRPG World§r§7.",
+                                .setLore("§7You get a permanent effect of §c" + ShopItem.SKILLS_STRENGHT1.getName() + "§7.",
                                         "",
                                         "§a§lActivated")
                                 .build());
@@ -507,7 +507,7 @@ public class InventoryManager {
                                 //.addPotionCustomEffect(new PotionEffect(PotionEffectType.INCREASE_DAMAGE, 0, 0), true)
                                 .setBasePotionData(PotionType.STRENGTH)
                                 .setDisplayname("§c§l" + ShopItem.SKILLS_STRENGHT1.getName() + " §7§lSkill")
-                                .setLore("§7You get a permanent effect of §c" + ShopItem.SKILLS_STRENGHT1.getName() + " §7in the §e§lRPG World§r§7.",
+                                .setLore("§7You get a permanent effect of §c" + ShopItem.SKILLS_STRENGHT1.getName() + "§7.",
                                         "",
                                         "§c§lNot active")
                                 .build());
@@ -521,7 +521,7 @@ public class InventoryManager {
                                 //.addPotionCustomEffect(new PotionEffect(PotionEffectType.INCREASE_DAMAGE, 0, 1), true)
                                 .setBasePotionData(PotionType.STRENGTH)
                                 .setDisplayname("§c§l" + ShopItem.SKILLS_STRENGHT2.getName() + " §7§lSkill")
-                                .setLore("§7You get a permanent effect of §c" + ShopItem.SKILLS_STRENGHT2.getName() + " §7in the §e§lRPG World§r§7.",
+                                .setLore("§7You get a permanent effect of §c" + ShopItem.SKILLS_STRENGHT2.getName() + "§7.",
                                         "",
                                         "§a§lActivated")
                                 .build());
@@ -530,7 +530,7 @@ public class InventoryManager {
                                 //.addPotionCustomEffect(new PotionEffect(PotionEffectType.INCREASE_DAMAGE, 0, 1), true)
                                 .setBasePotionData(PotionType.STRENGTH)
                                 .setDisplayname("§c§l" + ShopItem.SKILLS_STRENGHT2.getName() + " §7§lSkill")
-                                .setLore("§7You get a permanent effect of §c" + ShopItem.SKILLS_STRENGHT2.getName() + " §7in the §e§lRPG World§r§7.",
+                                .setLore("§7You get a permanent effect of §c" + ShopItem.SKILLS_STRENGHT2.getName() + "§7.",
                                         "",
                                         "§c§lNot active")
                                 .build());
@@ -544,7 +544,7 @@ public class InventoryManager {
                                 //.addPotionCustomEffect(new PotionEffect(PotionEffectType.SPEED, 0, 0), true)
                                 .setBasePotionData(PotionType.SPEED)
                                 .setDisplayname("§c§l" + ShopItem.SKILLS_SPEED1.getName() + " §7§lSkill")
-                                .setLore("§7You get a permanent effect of §c" + ShopItem.SKILLS_SPEED1.getName() + " §7in the §e§lRPG World§r§7.",
+                                .setLore("§7You get a permanent effect of §c" + ShopItem.SKILLS_SPEED1.getName() + "§7.",
                                         "",
                                         "§a§lActivated")
                                 .build());
@@ -553,7 +553,7 @@ public class InventoryManager {
                                 //.addPotionCustomEffect(new PotionEffect(PotionEffectType.SPEED, 0, 0), true)
                                 .setBasePotionData(PotionType.SPEED)
                                 .setDisplayname("§c§l" + ShopItem.SKILLS_SPEED1.getName() + " §7§lSkill")
-                                .setLore("§7You get a permanent effect of §c" + ShopItem.SKILLS_SPEED1.getName() + " §7in the §e§lRPG World§r§7.",
+                                .setLore("§7You get a permanent effect of §c" + ShopItem.SKILLS_SPEED1.getName() + "§7.",
                                         "",
                                         "§c§lNot active")
                                 .build());
@@ -567,7 +567,7 @@ public class InventoryManager {
                                 //.addPotionCustomEffect(new PotionEffect(PotionEffectType.SPEED, 0, 1), true)
                                 .setBasePotionData(PotionType.SPEED)
                                 .setDisplayname("§c§l" + ShopItem.SKILLS_SPEED2.getName() + " §7§lSkill")
-                                .setLore("§7You get a permanent effect of §c" + ShopItem.SKILLS_SPEED2.getName() + " §7in the §e§lRPG World§r§7.",
+                                .setLore("§7You get a permanent effect of §c" + ShopItem.SKILLS_SPEED2.getName() + "§7.",
                                         "",
                                         "§a§lActivated")
                                 .build());
@@ -576,7 +576,7 @@ public class InventoryManager {
                                 //.addPotionCustomEffect(new PotionEffect(PotionEffectType.SPEED, 0, 1), true)
                                 .setBasePotionData(PotionType.SPEED)
                                 .setDisplayname("§c§l" + ShopItem.SKILLS_SPEED2.getName() + " §7§lSkill")
-                                .setLore("§7You get a permanent effect of §c" + ShopItem.SKILLS_SPEED2.getName() + " §7in the §e§lRPG World§r§7.",
+                                .setLore("§7You get a permanent effect of §c" + ShopItem.SKILLS_SPEED2.getName() + "§7.",
                                         "",
                                         "§c§lNot active")
                                 .build());
@@ -590,7 +590,7 @@ public class InventoryManager {
                                 //.addPotionCustomEffect(new PotionEffect(PotionEffectType.NIGHT_VISION, 0, 0), true)
                                 .setBasePotionData(PotionType.NIGHT_VISION)
                                 .setDisplayname("§c§l" + ShopItem.SKILLS_NIGHTVISION.getName() + " §7§lSkill")
-                                .setLore("§7You get a permanent effect of §c" + ShopItem.SKILLS_NIGHTVISION.getName() + " §7in the §e§lRPG World§r§7.",
+                                .setLore("§7You get a permanent effect of §c" + ShopItem.SKILLS_NIGHTVISION.getName() + "§7.",
                                         "",
                                         "§a§lActivated")
                                 .build());
@@ -599,7 +599,7 @@ public class InventoryManager {
                                 //.addPotionCustomEffect(new PotionEffect(PotionEffectType.NIGHT_VISION, 0, 0), true)
                                 .setBasePotionData(PotionType.NIGHT_VISION)
                                 .setDisplayname("§c§l" + ShopItem.SKILLS_NIGHTVISION.getName() + " §7§lSkill")
-                                .setLore("§7You get a permanent effect of §c" + ShopItem.SKILLS_NIGHTVISION.getName() + " §7in the §e§lRPG World§r§7.",
+                                .setLore("§7You get a permanent effect of §c" + ShopItem.SKILLS_NIGHTVISION.getName() + "§7.",
                                         "",
                                         "§c§lNot active")
                                 .build());
@@ -613,7 +613,7 @@ public class InventoryManager {
                                 //.addPotionCustomEffect(new PotionEffect(PotionEffectType.JUMP, 0, 0), true)
                                 .setBasePotionData(PotionType.JUMP)
                                 .setDisplayname("§c§l" + ShopItem.SKILLS_JUMPBOOST1.getName() + " §7§lSkill")
-                                .setLore("§7You get a permanent effect of §c" + ShopItem.SKILLS_JUMPBOOST1.getName() + " §7in the §e§lRPG World§r§7.",
+                                .setLore("§7You get a permanent effect of §c" + ShopItem.SKILLS_JUMPBOOST1.getName() + "§7.",
                                         "",
                                         "§a§lActivated")
                                 .build());
@@ -622,7 +622,7 @@ public class InventoryManager {
                                 //.addPotionCustomEffect(new PotionEffect(PotionEffectType.JUMP, 0, 0), true)
                                 .setBasePotionData(PotionType.JUMP)
                                 .setDisplayname("§c§l" + ShopItem.SKILLS_JUMPBOOST1.getName() + " §7§lSkill")
-                                .setLore("§7You get a permanent effect of §c" + ShopItem.SKILLS_JUMPBOOST1.getName() + " §7in the §e§lRPG World§r§7.",
+                                .setLore("§7You get a permanent effect of §c" + ShopItem.SKILLS_JUMPBOOST1.getName() + "§7.",
                                         "",
                                         "§c§lNot active")
                                 .build());
@@ -636,7 +636,7 @@ public class InventoryManager {
                                 //.addPotionCustomEffect(new PotionEffect(PotionEffectType.JUMP, 0, 1), true)
                                 .setBasePotionData(PotionType.JUMP)
                                 .setDisplayname("§c§l" + ShopItem.SKILLS_JUMPBOOST2.getName() + " §7§lSkill")
-                                .setLore("§7You get a permanent effect of §c" + ShopItem.SKILLS_JUMPBOOST2.getName() + " §7in the §e§lRPG World§r§7.",
+                                .setLore("§7You get a permanent effect of §c" + ShopItem.SKILLS_JUMPBOOST2.getName() + "§7.",
                                         "",
                                         "§a§lActivated")
                                 .build());
@@ -645,7 +645,7 @@ public class InventoryManager {
                                 //.addPotionCustomEffect(new PotionEffect(PotionEffectType.JUMP, 0, 1), true)
                                 .setBasePotionData(PotionType.JUMP)
                                 .setDisplayname("§c§l" + ShopItem.SKILLS_JUMPBOOST2.getName() + " §7§lSkill")
-                                .setLore("§7You get a permanent effect of §c" + ShopItem.SKILLS_JUMPBOOST2.getName() + " §7in the §e§lRPG World§r§7.",
+                                .setLore("§7You get a permanent effect of §c" + ShopItem.SKILLS_JUMPBOOST2.getName() + "§7.",
                                         "",
                                         "§c§lNot active")
                                 .build());
@@ -659,7 +659,7 @@ public class InventoryManager {
                                 //.addPotionCustomEffect(new PotionEffect(PotionEffectType.REGENERATION, 0, 0), true)
                                 .setBasePotionData(PotionType.REGEN)
                                 .setDisplayname("§c§l" + ShopItem.SKILLS_REGENERATION1.getName() + " §7§lSkill")
-                                .setLore("§7You get a permanent effect of §c" + ShopItem.SKILLS_REGENERATION1.getName() + " §7in the §e§lRPG World§r§7.",
+                                .setLore("§7You get a permanent effect of §c" + ShopItem.SKILLS_REGENERATION1.getName() + "§7.",
                                         "",
                                         "§a§lActivated")
                                 .build());
@@ -668,7 +668,7 @@ public class InventoryManager {
                                 //.addPotionCustomEffect(new PotionEffect(PotionEffectType.REGENERATION, 0, 0), true)
                                 .setBasePotionData(PotionType.REGEN)
                                 .setDisplayname("§c§l" + ShopItem.SKILLS_REGENERATION1.getName() + " §7§lSkill")
-                                .setLore("§7You get a permanent effect of §c" + ShopItem.SKILLS_REGENERATION1.getName() + " §7in the §e§lRPG World§r§7.",
+                                .setLore("§7You get a permanent effect of §c" + ShopItem.SKILLS_REGENERATION1.getName() + "§7.",
                                         "",
                                         "§c§lNot active")
                                 .build());
@@ -682,7 +682,7 @@ public class InventoryManager {
                                 //.addPotionCustomEffect(new PotionEffect(PotionEffectType.REGENERATION, 0, 1), true)
                                 .setBasePotionData(PotionType.REGEN)
                                 .setDisplayname("§c§l" + ShopItem.SKILLS_REGENERATION2.getName() + " §7§lSkill")
-                                .setLore("§7You get a permanent effect of §c" + ShopItem.SKILLS_REGENERATION2.getName() + " §7in the §e§lRPG World§r§7.",
+                                .setLore("§7You get a permanent effect of §c" + ShopItem.SKILLS_REGENERATION2.getName() + "§7.",
                                         "",
                                         "§a§lActivated")
                                 .build());
@@ -691,7 +691,7 @@ public class InventoryManager {
                                 //.addPotionCustomEffect(new PotionEffect(PotionEffectType.REGENERATION, 0, 1), true)
                                 .setBasePotionData(PotionType.REGEN)
                                 .setDisplayname("§c§l" + ShopItem.SKILLS_REGENERATION2.getName() + " §7§lSkill")
-                                .setLore("§7You get a permanent effect of §c" + ShopItem.SKILLS_REGENERATION2.getName() + " §7in the §e§lRPG World§r§7.",
+                                .setLore("§7You get a permanent effect of §c" + ShopItem.SKILLS_REGENERATION2.getName() + "§7.",
                                         "",
                                         "§c§lNot active")
                                 .build());
