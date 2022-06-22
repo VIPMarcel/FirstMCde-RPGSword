@@ -67,3 +67,5 @@ commands:
   afk:
     description: teleports to the afk area
     aliases: [awayfromkeyboard]
+  coinstop:
+    description: shows you the top 10 rpg-coins players
