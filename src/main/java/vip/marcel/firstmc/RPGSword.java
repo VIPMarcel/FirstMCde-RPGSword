@@ -87,6 +87,7 @@ public class RPGSword extends JavaPlugin {
         pluginManager.registerEvents(new BlockBreakListener(this), this);
         pluginManager.registerEvents(new BlockPlaceListener(this), this);
         pluginManager.registerEvents(new PlayerArmorStandManipulateListener(this), this);
+        pluginManager.registerEvents(new ProjectileLaunchListener(this), this);
 
         getCommand("fixsword").setExecutor(new FixSwordCommand(this));
         getCommand("prestige").setExecutor(new PrestigeCommand(this));

@@ -12,6 +12,7 @@ import org.jetbrains.annotations.NotNull;
 import vip.marcel.firstmc.RPGSword;
 
 import java.io.File;
+import java.text.MessageFormat;
 import java.util.*;
 import java.util.concurrent.atomic.AtomicInteger;
 import java.util.stream.Collectors;
@@ -58,16 +59,19 @@ public record CoinsTopCommand(RPGSword plugin) implements CommandExecutor {
 
         sender.sendMessage(" ");
         sender.sendMessage("§7RPG-Coins §aTop 10 §7players:");
-        topTen.entrySet().forEach(entry -> {
+        topTen.forEach((key, value) -> {
             i.getAndIncrement();
-            if(Bukkit.getPlayer(entry.getKey()) != null) {
-                sender.sendMessage("§a§l#" + i.get() + "§r §7" + Bukkit.getPlayer(entry.getKey()).getName() + " §8» §a" + entry.getValue());
+
+            if(Bukkit.getPlayer(key) != null) {
+                sender.sendMessage("§a§l#" + i.get() + "§r §7" + Bukkit.getPlayer(key).getName() + " §8» §a" + MessageFormat.format("{0}", value));
             } else {
-                sender.sendMessage("§a§l#" + i.get() + "§r §7" + Bukkit.getOfflinePlayer(entry.getKey()).getName() + " §8» §a" + entry.getValue());
+                sender.sendMessage("§a§l#" + i.get() + "§r §7" + Bukkit.getOfflinePlayer(key).getName() + " §8» §a" + MessageFormat.format("{0}", value));
             }
         });
         sender.sendMessage(" ");
 
+        fileList.clear();
+        coinsPlayerMap.clear();
 
         return true;
     }

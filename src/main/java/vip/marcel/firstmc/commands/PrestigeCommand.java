@@ -97,7 +97,7 @@ public record PrestigeCommand(RPGSword plugin) implements CommandExecutor {
 
                 rpgPlayer.updateRPGSword();
 
-                rpgPlayer.setMultiplikator(this.plugin.getPrestigeLevelMap().get(rpgPlayer.getPrestigeLevel()).getMultiplikator()); //<--- error null(Map)
+                rpgPlayer.setMultiplikator(this.plugin.getPrestigeLevelMap().get(rpgPlayer.getPrestigeLevel()).getMultiplikator());
 
                 player.sendTitle("§7You have reached", "§7prestige §a" + rpgPlayer.getPrestigeLevel());
                 player.playSound(player.getLocation(), Sound.ENTITY_PLAYER_LEVELUP, 0.5F, 10F);

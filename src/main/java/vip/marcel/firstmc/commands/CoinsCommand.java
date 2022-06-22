@@ -15,6 +15,7 @@ import vip.marcel.firstmc.RPGSword;
 import vip.marcel.firstmc.utils.player.RPGPlayer;
 
 import java.io.File;
+import java.text.MessageFormat;
 import java.util.UUID;
 
 public record CoinsCommand(RPGSword plugin) implements CommandExecutor {
@@ -34,7 +35,7 @@ public record CoinsCommand(RPGSword plugin) implements CommandExecutor {
                     multiplier = (rpgPlayer.getPlayerMultiplikator() - 1);
                 }
 
-                player.sendMessage("§7§l(§a!§7§l)§r §7You have §a" + rpgPlayer.getRPGCoins() + " §7Coins.");
+                player.sendMessage("§7§l(§a!§7§l)§r §7You have §a" + MessageFormat.format("{0}", rpgPlayer.getRPGCoins()) + " §7Coins.");
                 player.sendMessage("§7§l(§a!§7§l)§r §7And a coins multiplier of §a" + multiplier + "§7.");
 
             } else if(arguments.length == 2) {
@@ -67,7 +68,7 @@ public record CoinsCommand(RPGSword plugin) implements CommandExecutor {
                         multiplier = (configuration.getInt("Player-Multiplikator") - 1);
                     }
 
-                    player.sendMessage("§7§l(§a!§7§l)§r §a" + playerName + "§7 has §a" + playerCoins + " §7Coins.");
+                    player.sendMessage("§7§l(§a!§7§l)§r §a" + playerName + "§7 has §a" + MessageFormat.format("{0}", playerCoins) + " §7Coins.");
                     player.sendMessage("§7§l(§a!§7§l)§r §7And a coins multiplier of §a" + multiplier + "§7.");
 
                 } else if(arguments[0].equalsIgnoreCase("withdraw")) {

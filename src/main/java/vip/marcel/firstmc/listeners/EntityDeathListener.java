@@ -25,7 +25,7 @@ public record EntityDeathListener(RPGSword plugin) implements Listener {
         final RPGPlayer rpgPlayer = this.plugin.getRPGPlayerMap().get(killer);
 
         if(WorldGuardEvents.isPlayerInAnyRegion(killer.getUniqueId(), "Spawn")) {
-            if(killer.getItemInHand().getItemMeta().getDisplayName().equalsIgnoreCase(this.plugin.getSwordItems().get(rpgPlayer.getLevel()).getItemMeta().getDisplayName())) {
+            if(killer.getInventory().getItemInMainHand().getItemMeta().getDisplayName().equalsIgnoreCase(this.plugin.getSwordItems().get(rpgPlayer.getLevel()).getItemMeta().getDisplayName())) {
                 event.getDrops().clear();
                 event.setDroppedExp(0);
                 killer.playSound(killer.getLocation(), Sound.BLOCK_LEVER_CLICK, 0.1F, 0.1F);
@@ -41,25 +41,27 @@ public record EntityDeathListener(RPGSword plugin) implements Listener {
 
                 rpgPlayer.grandRPGCoins(grandCoins);
 
-                if(rpgPlayer.getLevel() == 20) {
-                    if(rpgPlayer.getExperience() >= this.plugin.getSwordLevelMap().get(rpgPlayer.getLevel()).getMaxExperience()) {
-                        return;
-                    }
-                }
-
                 rpgPlayer.grandExperience(this.plugin.getSwordLevelMap().get(rpgPlayer.getLevel()).getGrandExperience() * rpgPlayer.getMultiplikator());
 
-                if(rpgPlayer.getExperience() >= this.plugin.getSwordLevelMap().get(rpgPlayer.getLevel()).getMaxExperience()) {
-                    // Player levels up
+                if(rpgPlayer.getLevel() == 20 && rpgPlayer.getExperience() >= this.plugin.getSwordLevelMap().get(rpgPlayer.getLevel()).getMaxExperience()) {
+                    return;
+                } else {
 
-                    rpgPlayer.grandLevel();
-                    rpgPlayer.resetExperience();
-                    killer.sendTitle("§7✳ §a§lLEVEL UP§7! ✳", "§a" + (rpgPlayer.getLevel() - 1) + " §7⇒ §a" + rpgPlayer.getLevel());
-                    Bukkit.getWorld(killer.getWorld().getName()).strikeLightningEffect(killer.getLocation());
-                    killer.playSound(killer.getLocation(), Sound.ENTITY_FIREWORK_ROCKET_SHOOT, 0.5F, 5F);
-                    rpgPlayer.updateRPGSword();
+                    if(rpgPlayer.getExperience() >= this.plugin.getSwordLevelMap().get(rpgPlayer.getLevel()).getMaxExperience()) {
+                        // Player levels up
+
+                        rpgPlayer.grandLevel();
+                        rpgPlayer.resetExperience();
+                        killer.sendTitle("§7✳ §a§lLEVEL UP§7! ✳", "§a" + (rpgPlayer.getLevel() - 1) + " §7⇒ §a" + rpgPlayer.getLevel());
+                        Bukkit.getWorld(killer.getWorld().getName()).strikeLightningEffect(killer.getLocation());
+                        killer.playSound(killer.getLocation(), Sound.ENTITY_FIREWORK_ROCKET_SHOOT, 0.5F, 5F);
+                        rpgPlayer.updateRPGSword();
+                    }
+
                 }
 
+            } else {
+                event.setCancelled(true);
             }
         }
 

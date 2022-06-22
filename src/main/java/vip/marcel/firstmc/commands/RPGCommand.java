@@ -2,10 +2,12 @@ package vip.marcel.firstmc.commands;
 
 import org.bukkit.Bukkit;
 import org.bukkit.Material;
+import org.bukkit.OfflinePlayer;
 import org.bukkit.Sound;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
+import org.bukkit.configuration.file.YamlConfiguration;
 import org.bukkit.enchantments.Enchantment;
 import org.bukkit.entity.Player;
 import org.bukkit.inventory.ItemFlag;
@@ -13,6 +15,8 @@ import org.jetbrains.annotations.NotNull;
 import vip.marcel.firstmc.RPGSword;
 import vip.marcel.firstmc.utils.player.RPGPlayer;
 
+import java.io.File;
+import java.text.MessageFormat;
 import java.util.UUID;
 
 public record RPGCommand(RPGSword plugin) implements CommandExecutor {
@@ -37,6 +41,7 @@ public record RPGCommand(RPGSword plugin) implements CommandExecutor {
                 player.sendMessage("§7Do §8'§a/coins withdraw§8' §7to create §acoin coupons§7.");
                 player.sendMessage("§7Do §8'§a/skills§8' §7to activate your §abought skills§7.");
                 player.sendMessage("§7Do §8'§a/prestigetop§8' §7to see the §atop 10 §7players§7.");
+                player.sendMessage("§7Do §8'§a/coinstop§8' §7to see the §atop 10 §7players§7.");
                 player.sendMessage("§7Do §8'§a/coinshop§8' §7to buy cool new stuff§7.");
                 player.sendMessage("§7Do §8'§a/afk§8' §7to teleport to the §aafk area§7.");
                 player.sendMessage("§7Do §8'§a/ip§8' §7to look up the §aserver adress§7.");
@@ -54,6 +59,7 @@ public record RPGCommand(RPGSword plugin) implements CommandExecutor {
                 player.sendMessage("§7§l(§a?§7§l)§r §7Usages: §8/§7rpg §asetPrestige §7<Player> <Amount>");
                 player.sendMessage("§7§l(§a?§7§l)§r §7Usages: §8/§7rpg §asetCoins §7<Player> <Amount>");
                 player.sendMessage("§7§l(§a?§7§l)§r §7Usages: §8/§7rpg §agetCoinsMultiplikatorItem §7<Amount>");
+                player.sendMessage("§7§l(§a?§7§l)§r §7Usages: §8/§7rpg §ashow §7<Player>");
                 player.sendMessage(" ");
                 return true;
             }
@@ -95,6 +101,11 @@ public record RPGCommand(RPGSword plugin) implements CommandExecutor {
                     return true;
                 }
 
+                if(arguments[0].equalsIgnoreCase("show") && player.hasPermission("rpg.admin")) {
+                    player.sendMessage("§7§l(§a!§7§l)§r §7Enter a §aplayername §7to show his §astats§7.");
+                    return true;
+                }
+
                 else {
                     player.sendMessage(" ");
                     player.sendMessage("§7§l(§a?§7§l)§r §7Usages: §8/§7rpg §asetXP §7<Player> <Amount>");
@@ -104,6 +115,7 @@ public record RPGCommand(RPGSword plugin) implements CommandExecutor {
                     player.sendMessage("§7§l(§a?§7§l)§r §7Usages: §8/§7rpg §asetPrestige §7<Player> <Amount>");
                     player.sendMessage("§7§l(§a?§7§l)§r §7Usages: §8/§7rpg §asetCoins §7<Player> <Amount>");
                     player.sendMessage("§7§l(§a?§7§l)§r §7Usages: §8/§7rpg §agetCoinsMultiplikatorItem §7<Amount>");
+                    player.sendMessage("§7§l(§a?§7§l)§r §7Usages: §8/§7rpg §ashow §7<Player>");
                     player.sendMessage(" ");
                 }
 
@@ -133,6 +145,52 @@ public record RPGCommand(RPGSword plugin) implements CommandExecutor {
                     player.playSound(player.getLocation(), Sound.BLOCK_DISPENSER_LAUNCH, 0.5F, 0.25F);
                     player.sendMessage("§7§l(§a!§7§l)§r §7Added §acoin multiplier §7with value §ax" + newValue + " §7to your inventory.");
                     return true;
+                }
+
+                if(arguments[0].equalsIgnoreCase("show") && player.hasPermission("rpg.admin")) {
+
+                    final Player target = Bukkit.getPlayer(arguments[1]);
+
+                    if(target == null) {
+                        // player is offline, luckup config values
+
+                        final OfflinePlayer offlinePlayer = Bukkit.getOfflinePlayer(arguments[1]);
+
+                        final File playerFile = this.plugin.getConfigManager().getPlayerFile(offlinePlayer.getUniqueId());
+
+                        if(playerFile == null) {
+                            player.sendMessage("§7§l(§c!§7§l)§r §7The player §a" + offlinePlayer.getName() + " §7was not found.");
+                            return true;
+                        }
+
+                        final YamlConfiguration configuration = YamlConfiguration.loadConfiguration(playerFile);
+
+                        player.sendMessage(" ");
+                        player.sendMessage("§7Stats from: §a" + offlinePlayer.getName());
+                        player.sendMessage("§7RPG-Coins: §a" + MessageFormat.format("{0}", configuration.getInt("RPGCoins")));
+                        player.sendMessage("§7Coins-Multiplikator: §ax" + configuration.getInt("Player-Multiplikator"));
+                        player.sendMessage("§7Prestige-Level: §a" + configuration.getInt("Prestige-Level"));
+                        player.sendMessage("§7Level: §a" + configuration.getInt("Level"));
+                        player.sendMessage("§7XP: §a" + configuration.getDouble("XP"));
+                        player.sendMessage("§7XP-Multiplikator: §ax" + configuration.getDouble("Multiplikator"));
+                        player.sendMessage(" ");
+
+                        return true;
+                    }
+
+                    //player is online
+                    final RPGPlayer rpgTarget = this.plugin.getRPGPlayerMap().get(target);
+
+                    player.sendMessage(" ");
+                    player.sendMessage("§7Stats from: §a" + target.getName());
+                    player.sendMessage("§7RPG-Coins: §a" + MessageFormat.format("{0}", rpgTarget.getRPGCoins()));
+                    player.sendMessage("§7Coins-Multiplikator: §ax" + rpgTarget.getPlayerMultiplikator());
+                    player.sendMessage("§7Prestige-Level: §a" + rpgTarget.getPrestigeLevel());
+                    player.sendMessage("§7Level: §a" + rpgTarget.getLevel());
+                    player.sendMessage("§7XP: §a" + rpgTarget.getExperience());
+                    player.sendMessage("§7XP-Multiplikator: §ax" + rpgTarget.getMultiplikator());
+                    player.sendMessage(" ");
+
                 }
 
             }
@@ -261,6 +319,7 @@ public record RPGCommand(RPGSword plugin) implements CommandExecutor {
                 player.sendMessage("§7§l(§a?§7§l)§r §7Usages: §8/§7rpg §asetPrestige §7<Player> <Amount>");
                 player.sendMessage("§7§l(§a?§7§l)§r §7Usages: §8/§7rpg §asetCoins §7<Player> <Amount>");
                 player.sendMessage("§7§l(§a?§7§l)§r §7Usages: §8/§7rpg §agetCoinsMultiplikatorItem §7<Amount>");
+                player.sendMessage("§7§l(§a?§7§l)§r §7Usages: §8/§7rpg §ashow §7<Player>");
                 player.sendMessage(" ");
             }
 
