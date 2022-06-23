@@ -22,6 +22,10 @@ public record ProjectileLaunchListener(RPGSword plugin) implements Listener {
                 if(!player.getInventory().getItemInMainHand().getType().equals(Material.ENDER_PEARL) &&
                 !player.getInventory().getItemInOffHand().getType().equals(Material.ENDER_PEARL)) {
 
+                    if(this.plugin.getEditModePlayerList().contains(player)) {
+                        return;
+                    }
+
 
                     event.setCancelled(true);
                     player.sendMessage("§7§l(§c§l!§7§l)§r §7You can't launch projectiles in this area.");
