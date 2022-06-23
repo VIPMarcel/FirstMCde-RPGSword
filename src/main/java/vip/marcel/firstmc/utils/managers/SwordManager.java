@@ -124,7 +124,7 @@ public class SwordManager {
             swordLevel.setMaxExperience(300);
             swordLevel.setGrandExperience(1);
             swordLevel.setCoinsPerKill(6);
-            swordLevel.setKillableEntityType(EntityType.PANDA);
+            swordLevel.setKillableEntityType(EntityType.POLAR_BEAR);
 
             this.plugin.getSwordLevelMap().put(6, swordLevel);
         }
@@ -333,7 +333,7 @@ public class SwordManager {
             swordLevel.setMaxExperience(700);
             swordLevel.setGrandExperience(1);
             swordLevel.setCoinsPerKill(17);
-            swordLevel.setKillableEntityType(EntityType.POLAR_BEAR);
+            swordLevel.setKillableEntityType(EntityType.PANDA);
 
             this.plugin.getSwordLevelMap().put(17, swordLevel);
         }

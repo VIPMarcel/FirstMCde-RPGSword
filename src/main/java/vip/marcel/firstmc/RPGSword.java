@@ -109,6 +109,7 @@ public class RPGSword extends JavaPlugin {
         new UpdateScoreboardRunnable(this).runTaskTimer(this, 10, 10);
         new PlayerTimeRunnable(this).runTaskTimerAsynchronously(this, 20, 20);
         new SkillsEffectRunnable(this).runTaskTimer(this, 20, 20);
+        new StatisticHologramsRunnable(this).runTaskTimer(this, 20, 20);
     }
 
     public PluginAPI getApi() {
