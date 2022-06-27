@@ -13,6 +13,8 @@ import org.bukkit.entity.Player;
 import org.bukkit.inventory.meta.FireworkMeta;
 import org.jetbrains.annotations.NotNull;
 import vip.marcel.firstmc.RPGSword;
+import vip.marcel.firstmc.events.AchievmentGrandEvent;
+import vip.marcel.firstmc.utils.enums.Achievment;
 import vip.marcel.firstmc.utils.player.RPGPlayer;
 
 public record PrestigeCommand(RPGSword plugin) implements CommandExecutor {
@@ -98,6 +100,8 @@ public record PrestigeCommand(RPGSword plugin) implements CommandExecutor {
                 rpgPlayer.updateRPGSword();
 
                 rpgPlayer.setMultiplikator(this.plugin.getPrestigeLevelMap().get(rpgPlayer.getPrestigeLevel()).getMultiplikator());
+
+                Bukkit.getPluginManager().callEvent(new AchievmentGrandEvent(player, Achievment.FIRST_PRESTIGE));
 
                 player.sendTitle("§7You have reached", "§7prestige §a" + rpgPlayer.getPrestigeLevel());
                 player.playSound(player.getLocation(), Sound.ENTITY_PLAYER_LEVELUP, 0.5F, 10F);

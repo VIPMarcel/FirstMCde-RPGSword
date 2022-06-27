@@ -88,6 +88,8 @@ public class RPGSword extends JavaPlugin {
         pluginManager.registerEvents(new BlockPlaceListener(this), this);
         pluginManager.registerEvents(new PlayerArmorStandManipulateListener(this), this);
         pluginManager.registerEvents(new ProjectileLaunchListener(this), this);
+        pluginManager.registerEvents(new AchievmentGrandListener(this), this);
+        pluginManager.registerEvents(new PlayerDeathListener(this), this);
 
         getCommand("fixsword").setExecutor(new FixSwordCommand(this));
         getCommand("prestige").setExecutor(new PrestigeCommand(this));
@@ -103,6 +105,7 @@ public class RPGSword extends JavaPlugin {
         getCommand("adress").setExecutor(new ServerAdressCommand(this));
         getCommand("afk").setExecutor(new AFKCommand(this));
         getCommand("coinstop").setExecutor(new CoinsTopCommand(this));
+        getCommand("achievments").setExecutor(new AchievementsCommand(this));
 
         new AFKAreaRunnable(this).runTaskTimerAsynchronously(this, 20 * 60, 20 * 60);
         new ActionbarRunnable(this).runTaskTimerAsynchronously(this, 10, 10);
@@ -130,6 +133,10 @@ public class RPGSword extends JavaPlugin {
 
     public SkillsManager getSkillsManager(Player player) {
         return new SkillsManager(this, player);
+    }
+
+    public AchievmentManager getAchievmentManager(Player player) {
+        return new AchievmentManager(this, player);
     }
 
     public Map<Player, File> getPlayerFileMap() {

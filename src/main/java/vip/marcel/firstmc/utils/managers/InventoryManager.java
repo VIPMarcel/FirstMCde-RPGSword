@@ -9,6 +9,7 @@ import org.bukkit.inventory.Inventory;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.potion.PotionType;
 import vip.marcel.firstmc.RPGSword;
+import vip.marcel.firstmc.utils.enums.Achievment;
 import vip.marcel.firstmc.utils.enums.InventoryType;
 import vip.marcel.firstmc.utils.enums.ShopItem;
 
@@ -28,6 +29,21 @@ public class InventoryManager {
     }
 
     private void initInventories() {
+
+        /* ACHIEVMENTS -MENU */
+        {
+            final Inventory inventory = Bukkit.createInventory(null, 54, "§a§lYour grand achievments");
+
+            for(int i = 0; i < inventory.getSize(); i++) {
+                inventory.setItem(i, this.plugin.getApi().item(Material.GRAY_STAINED_GLASS_PANE).setNoName().build());
+            }
+
+            for(int i = 45; i < inventory.getSize(); i++) {
+                inventory.setItem(i, this.plugin.getApi().item(Material.RED_STAINED_GLASS_PANE).setNoName().build());
+            }
+
+            this.inventoryMap.put(InventoryType.ACHIEVMENTS, inventory);
+        }
 
         /* SKILLS-MENU */
         {
@@ -697,6 +713,71 @@ public class InventoryManager {
                                 .build());
                     }
 
+                }
+
+                return inventory;
+
+            case ACHIEVMENTS:
+                final AchievmentManager achievmentManager = this.plugin.getAchievmentManager(player);
+
+                if(achievmentManager.hasAchievment(Achievment.FIRST_KILL)) {
+                    inventory.setItem(0, this.plugin.getApi().item(Material.LIME_DYE)
+                            .setDisplayname("§a" + Achievment.FIRST_KILL.getName())
+                            .setLore("§7" + Achievment.FIRST_KILL.getDescription())
+                            .build());
+                } else {
+                    inventory.setItem(0, this.plugin.getApi().item(Material.GRAY_DYE)
+                            .setDisplayname("§c???")
+                            .setLore("§7You have not unlocked this achievement yet.")
+                            .build());
+                }
+
+                if(achievmentManager.hasAchievment(Achievment.FIRST_DEATH)) {
+                    inventory.setItem(1, this.plugin.getApi().item(Material.LIME_DYE)
+                            .setDisplayname("§a" + Achievment.FIRST_DEATH.getName())
+                            .setLore("§7" + Achievment.FIRST_DEATH.getDescription())
+                            .build());
+                } else {
+                    inventory.setItem(1, this.plugin.getApi().item(Material.GRAY_DYE)
+                            .setDisplayname("§c???")
+                            .setLore("§7You have not unlocked this achievement yet.")
+                            .build());
+                }
+
+                if(achievmentManager.hasAchievment(Achievment.FIRST_PRESTIGE)) {
+                    inventory.setItem(2, this.plugin.getApi().item(Material.LIME_DYE)
+                            .setDisplayname("§a" + Achievment.FIRST_PRESTIGE.getName())
+                            .setLore("§7" + Achievment.FIRST_PRESTIGE.getDescription())
+                            .build());
+                } else {
+                    inventory.setItem(2, this.plugin.getApi().item(Material.GRAY_DYE)
+                            .setDisplayname("§c???")
+                            .setLore("§7You have not unlocked this achievement yet.")
+                            .build());
+                }
+
+                if(achievmentManager.hasAchievment(Achievment.XP_1000)) {
+                    inventory.setItem(3, this.plugin.getApi().item(Material.LIME_DYE)
+                            .setDisplayname("§a" + Achievment.XP_1000.getName())
+                            .setLore("§7" + Achievment.XP_1000.getDescription())
+                            .build());
+                } else {
+                    inventory.setItem(3, this.plugin.getApi().item(Material.GRAY_DYE)
+                            .setDisplayname("§c???")
+                            .setLore("§7You have not unlocked this achievement yet.")
+                            .build());
+                }
+
+                if(achievmentManager.hasAchievment(Achievment.FIRST_SHOP_CONFIRM)) {
+                    inventory.setItem(4, this.plugin.getApi().item(Material.LIME_DYE)
+                            .setDisplayname("§a" + Achievment.FIRST_SHOP_CONFIRM.getName())
+                            .setLore("§7" + Achievment.FIRST_SHOP_CONFIRM.getDescription())
+                            .build());
+                } else {
+                    inventory.setItem(4, this.plugin.getApi().item(Material.GRAY_DYE)
+                            .setDisplayname("§c???")
+                            .setLore("§7You have not unlocked this achievement yet.")
+                            .build());
                 }
 
                 return inventory;

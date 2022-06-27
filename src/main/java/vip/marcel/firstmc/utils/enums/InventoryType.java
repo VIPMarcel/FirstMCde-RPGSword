@@ -9,6 +9,7 @@ public enum InventoryType {
     SHOP_TOOLS,
     SHOP_CONFIRM_BUY,
 
+    ACHIEVMENTS,
     SKILLS_MENU;
 
 }

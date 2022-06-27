@@ -9,6 +9,8 @@ import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.event.entity.EntityDeathEvent;
 import vip.marcel.firstmc.RPGSword;
+import vip.marcel.firstmc.events.AchievmentGrandEvent;
+import vip.marcel.firstmc.utils.enums.Achievment;
 import vip.marcel.firstmc.utils.player.RPGPlayer;
 
 public record EntityDeathListener(RPGSword plugin) implements Listener {
@@ -30,6 +32,8 @@ public record EntityDeathListener(RPGSword plugin) implements Listener {
                 event.setDroppedExp(0);
                 killer.playSound(killer.getLocation(), Sound.BLOCK_LEVER_CLICK, 0.1F, 0.1F);
 
+                Bukkit.getPluginManager().callEvent(new AchievmentGrandEvent(killer, Achievment.FIRST_KILL));
+
                 int grandCoins;
                 if(rpgPlayer.getPlayerMultiplikator() == 1) {
                     grandCoins = this.plugin.getSwordLevelMap().get(rpgPlayer.getLevel()).getCoinsPerKill() * rpgPlayer.getPlayerMultiplikator();
@@ -42,6 +46,10 @@ public record EntityDeathListener(RPGSword plugin) implements Listener {
                 rpgPlayer.grandRPGCoins(grandCoins);
 
                 rpgPlayer.grandExperience(this.plugin.getSwordLevelMap().get(rpgPlayer.getLevel()).getGrandExperience() * rpgPlayer.getMultiplikator());
+
+                if(rpgPlayer.getExperience() >= 1000) {
+                    Bukkit.getPluginManager().callEvent(new AchievmentGrandEvent(killer, Achievment.XP_1000));
+                }
 
                 if(rpgPlayer.getLevel() == 20 && rpgPlayer.getExperience() >= this.plugin.getSwordLevelMap().get(rpgPlayer.getLevel()).getMaxExperience()) {
                     return;

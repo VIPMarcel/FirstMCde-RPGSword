@@ -4,6 +4,8 @@ import org.bukkit.Bukkit;
 import org.bukkit.Sound;
 import org.bukkit.entity.Player;
 import vip.marcel.firstmc.RPGSword;
+import vip.marcel.firstmc.events.AchievmentGrandEvent;
+import vip.marcel.firstmc.utils.enums.Achievment;
 import vip.marcel.firstmc.utils.enums.ShopItem;
 import vip.marcel.firstmc.utils.player.RPGPlayer;
 
@@ -65,6 +67,7 @@ public record ShopManager(RPGSword plugin, Player player) {
         }
 
         rpgPlayer.removeRPGCoins(shopItem.getPrice());
+        Bukkit.getPluginManager().callEvent(new AchievmentGrandEvent(player, Achievment.FIRST_SHOP_CONFIRM));
         return true;
     }
 

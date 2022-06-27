@@ -69,3 +69,5 @@ commands:
     aliases: [awayfromkeyboard]
   coinstop:
     description: shows you the top 10 rpg-coins players
+  achievments:
+    description: shows your granted achievements

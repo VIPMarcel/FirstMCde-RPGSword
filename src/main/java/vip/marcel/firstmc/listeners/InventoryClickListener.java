@@ -32,6 +32,11 @@ public record InventoryClickListener(RPGSword plugin) implements Listener {
                 return;
             }
 
+            /* ACHIEVMENTS -MENU */
+            if(event.getView().getTitle().equalsIgnoreCase("§a§lYour grand achievments")) {
+                event.setCancelled(true);
+            }
+
             /* SHOP START-MENU */
             if(event.getView().getTitle().equalsIgnoreCase("§a§lCoin Shop")) {
 

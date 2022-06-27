@@ -1,5 +1,6 @@
 package vip.marcel.firstmc.utils.managers;
 
+import com.google.common.collect.Lists;
 import org.bukkit.configuration.file.YamlConfiguration;
 import vip.marcel.firstmc.RPGSword;
 
@@ -39,6 +40,7 @@ public class ConfigManager {
                 configuration.set("Level", 1);
                 configuration.set("XP", 0.0);
                 configuration.set("Multiplikator", 1.0);
+                configuration.set("Achievments", Lists.newArrayList());
                 configuration.save(file);
             } catch(IOException e) {
                 e.printStackTrace();
